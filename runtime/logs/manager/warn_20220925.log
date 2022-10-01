@@ -1,0 +1,12 @@
+{"level":"warning","log_type":"pkg.orm.orm","msg":"database connect error, you can't use orm support: ","time":"2022-09-25T16:17:41+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"dial tcp: lookup mysql: no such host","time":"2022-09-25T16:17:41+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"database connect error, you can't use orm support","time":"2022-09-25T16:17:41+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"dial tcp: lookup mysql: no such host","time":"2022-09-25T16:17:41+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"database connect error, you can't use orm support: ","time":"2022-09-25T16:18:04+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"dial tcp: lookup mysql: no such host","time":"2022-09-25T16:18:04+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"database connect error, you can't use orm support","time":"2022-09-25T16:18:04+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"dial tcp: lookup mysql: no such host","time":"2022-09-25T16:18:04+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"database connect error, you can't use orm support: ","time":"2022-09-25T16:24:27+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"dial tcp: lookup mysql: no such host","time":"2022-09-25T16:24:27+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"database connect error, you can't use orm support","time":"2022-09-25T16:24:27+08:00"}
+{"level":"warning","log_type":"pkg.orm.orm","msg":"dial tcp: lookup mysql: no such host","time":"2022-09-25T16:24:27+08:00"}
