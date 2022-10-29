@@ -13,4 +13,5 @@ type Group struct {
 	Status    int      `gorm:"colum:status"`
 	Tag       []string `gorm:"colum:tag"`
 	Thumb     string   `gorm:"thumb"`
+	MaxNum    int      `gorm:"max_num"`
 }

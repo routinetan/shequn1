@@ -3,8 +3,8 @@ package pager
 import (
 	"fmt"
 	"github.com/jinzhu/gorm"
-	"quanzi1/foundation/database/orm"
 	"reflect"
+	"shequn1/foundation/database/orm"
 	"strings"
 )
 

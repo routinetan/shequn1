@@ -2,13 +2,15 @@ package service
 
 import (
 	"github.com/gogf/gf/util/gconv"
-	"quanzi1/foundation/database/orm"
-	"quanzi1/internal/model"
+	"shequn1/foundation/database/orm"
+	"shequn1/internal/entities"
+	"shequn1/internal/model"
 )
 
-func GetNavList() []string {
+func GetNavList() []entities.Category {
+	var navEntity []entities.Category
 	var nav []model.Category
-	orm.Master().Find(&nav).Where(&model.Category{Status: 1})
-	gconv.Structs()
-	return []string{}
+	orm.Master().Where(&model.Category{Status: 1}).Find(&nav)
+	gconv.Structs(nav, &navEntity)
+	return navEntity
 }

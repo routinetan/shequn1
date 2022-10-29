@@ -2,12 +2,12 @@ package managers
 
 import (
 	"github.com/gin-gonic/gin"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/database"
-	"quanzi1/foundation/database/orm"
-	"quanzi1/foundation/pager"
-	"quanzi1/foundation/validator"
 	"reflect"
+	"shequn1/foundation/app"
+	"shequn1/foundation/database"
+	"shequn1/foundation/database/orm"
+	"shequn1/foundation/pager"
+	"shequn1/foundation/validator"
 )
 
 // GormManager mysql 的实现

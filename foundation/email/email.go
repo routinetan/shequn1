@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/smtp"
-	"quanzi1/foundation/app"
+	"shequn1/foundation/app"
 	"strings"
 	"sync"
 	"time"

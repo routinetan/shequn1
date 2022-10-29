@@ -9,13 +9,13 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"net/http"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/database/orm"
-	"quanzi1/foundation/engine"
-	"quanzi1/foundation/log"
-	"quanzi1/foundation/redis"
-	"quanzi1/foundation/validator"
-	"quanzi1/foundation/view"
+	"shequn1/foundation/app"
+	"shequn1/foundation/database/orm"
+	"shequn1/foundation/engine"
+	"shequn1/foundation/log"
+	"shequn1/foundation/redis"
+	"shequn1/foundation/validator"
+	"shequn1/foundation/view"
 	"time"
 )
 
@@ -57,7 +57,7 @@ func start() {
 	redis.Start()
 	//elastic.Start()
 	view.Init()
-	view.View.AddPath("/" + Mode + "/tmpl/")
+	view.View.AddPath("/" + Mode + "/")
 	// 加载应用配置
 	err := app.Config().Bind("application", fmt.Sprintf("application.%s", Mode), &Config)
 	if err != nil {

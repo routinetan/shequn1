@@ -5,13 +5,13 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	"html/template"
 	"net/http"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/database/managers"
-	"quanzi1/foundation/middlewares"
-	"quanzi1/foundation/rbac"
-	"quanzi1/internal/admin/controller"
-	"quanzi1/internal/entities"
-	"quanzi1/internal/manager/controllers"
+	"shequn1/foundation/app"
+	"shequn1/foundation/database/managers"
+	"shequn1/foundation/middlewares"
+	"shequn1/foundation/rbac"
+	"shequn1/internal/admin/controller"
+	"shequn1/internal/entities"
+	"shequn1/internal/manager/controllers"
 )
 
 func GetRouter(engine *gin.Engine) {

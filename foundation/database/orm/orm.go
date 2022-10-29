@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql" // 使用MySQL
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/unique"
+	"shequn1/foundation/app"
+	"shequn1/foundation/unique"
 	"sync/atomic"
 	"time"
 )

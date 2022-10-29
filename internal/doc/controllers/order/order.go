@@ -2,10 +2,10 @@ package order
 
 import (
 	"github.com/gin-gonic/gin"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/database/orm"
-	"quanzi1/foundation/validator"
-	"quanzi1/internal/entities"
+	"shequn1/foundation/app"
+	"shequn1/foundation/database/orm"
+	"shequn1/foundation/validator"
+	"shequn1/internal/entities"
 )
 
 // ListToVisitor get id

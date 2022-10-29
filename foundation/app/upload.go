@@ -4,11 +4,12 @@ import (
 	"bytes"
 	"encoding/hex"
 	"github.com/gin-gonic/gin"
+	"github.com/gogf/gf/frame/g"
 	"github.com/sirupsen/logrus"
 	"io/ioutil"
 	"mime/multipart"
 	"net/http"
-	"quanzi1/foundation/unique"
+	"shequn1/foundation/unique"
 	"strconv"
 	"strings"
 	"sync"
@@ -23,19 +24,32 @@ type fileTypeMap struct {
 type SaveHandler interface {
 	// 保存文件并返回文件最终路径
 	Save(file *multipart.FileHeader, fileName string) string
+	GetPrefix() string
 }
 
 // DefaultSaveHandler 默认文件保存器
 type DefaultSaveHandler struct {
-	prefix  string
-	dst     string
-	context *gin.Context
+	prefix    string
+	dst       string
+	publicDst string
+	context   *gin.Context
 }
 
 // SetDst 设置保存位置
 func (defaultSaveHandler *DefaultSaveHandler) SetDst(dst string) *DefaultSaveHandler {
 	defaultSaveHandler.dst = dst
 	return defaultSaveHandler
+}
+
+// SetDst 设置保存位置
+func (defaultSaveHandler *DefaultSaveHandler) SetPublicDst(dst string) *DefaultSaveHandler {
+	defaultSaveHandler.publicDst = dst
+	return defaultSaveHandler
+}
+
+// SetDst 设置保存位置
+func (defaultSaveHandler *DefaultSaveHandler) GetPrefix() string {
+	return defaultSaveHandler.prefix
 }
 
 // SetPrefix 设置前缀
@@ -52,8 +66,8 @@ func (defaultSaveHandler *DefaultSaveHandler) Save(file *multipart.FileHeader, f
 		Get("logger").(*logrus.Logger).WithField("log_type", "foundation.app.upload").Error(err)
 		return ""
 	}
-
-	return defaultSaveHandler.prefix + filePath
+	filePath = defaultSaveHandler.publicDst + fileName
+	return filePath
 }
 
 // FileType 文件类型
@@ -192,8 +206,10 @@ func Upload(key string, saveHandler SaveHandler, allowedTyp ...string) gin.Handl
 			}
 
 		}
-
-		response.Data = data
+		ret := g.Map{}
+		ret["prefix"] = saveHandler.GetPrefix()
+		ret["file_list"] = data
+		response.Data = ret
 		context.JSON(http.StatusOK, response)
 	}
 }

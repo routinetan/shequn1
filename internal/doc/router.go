@@ -2,8 +2,8 @@ package doc
 
 import (
 	"github.com/gin-gonic/gin"
-	"quanzi1/foundation/middlewares"
-	"quanzi1/internal/doc/controllers/order"
+	"shequn1/foundation/middlewares"
+	"shequn1/internal/doc/controllers/order"
 )
 
 // GetEngine 路由注册主方法

@@ -21,7 +21,7 @@ func genModuleCmdFunc(cmd *cobra.Command, args []string) {
 
 func genModelCmdFunc(cmd *cobra.Command, args []string) {
 	fmt.Println("test cmd function execute.")
-
+	
 	if len(args) > 0 {
 		i := 0
 		for i = 0; i < len(args); i++ {

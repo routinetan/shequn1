@@ -3,7 +3,7 @@ package rbac
 import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"quanzi1/foundation/database/mongo"
+	"shequn1/foundation/database/mongo"
 )
 
 // Binding 用户id与角色id的关系

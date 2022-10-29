@@ -2,12 +2,12 @@ package order
 
 import (
 	"github.com/gin-gonic/gin"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/database/category"
-	"quanzi1/foundation/database/mongo"
-	"quanzi1/foundation/database/orm"
-	"quanzi1/foundation/pager"
-	"quanzi1/internal/entities"
+	"shequn1/foundation/app"
+	"shequn1/foundation/database/category"
+	"shequn1/foundation/database/mongo"
+	"shequn1/foundation/database/orm"
+	"shequn1/foundation/pager"
+	"shequn1/internal/entities"
 	"sync"
 )
 

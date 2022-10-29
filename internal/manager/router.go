@@ -2,13 +2,13 @@ package manager
 
 import (
 	"github.com/gin-gonic/gin"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/captcha"
-	"quanzi1/foundation/database/managers"
-	"quanzi1/foundation/middlewares"
-	"quanzi1/foundation/rbac"
-	"quanzi1/internal/entities"
-	"quanzi1/internal/manager/controllers"
+	"shequn1/foundation/app"
+	"shequn1/foundation/captcha"
+	"shequn1/foundation/database/managers"
+	"shequn1/foundation/middlewares"
+	"shequn1/foundation/rbac"
+	"shequn1/internal/entities"
+	"shequn1/internal/manager/controllers"
 )
 
 // GetEngine 设置路由的主方法,示例

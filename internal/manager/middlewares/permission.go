@@ -3,10 +3,10 @@ package middlewares
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/middlewares"
-	"quanzi1/foundation/rbac"
-	"quanzi1/internal/entities"
+	"shequn1/foundation/app"
+	"shequn1/foundation/middlewares"
+	"shequn1/foundation/rbac"
+	"shequn1/internal/entities"
 )
 
 // CheckPermission 验证用户权限, 这是自定义的结构体，这里只是示例

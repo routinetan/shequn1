@@ -5,9 +5,9 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"quanzi1/foundation/database/mongo"
-	"quanzi1/foundation/middlewares"
-	"quanzi1/foundation/password"
+	"shequn1/foundation/database/mongo"
+	"shequn1/foundation/middlewares"
+	"shequn1/foundation/password"
 	"time"
 )
 
@@ -50,12 +50,12 @@ func (Staff) TableName() string {
 }
 
 // GetTopic 获取id
-func (staff Staff) GetTopic() interface{} {
+func (staff Staff) GetUser() interface{} {
 	return staff.ID
 }
 
 // FindByTopic 根据id获取用户信息
-func (Staff) FindByTopic(topic interface{}) middlewares.AuthInterface {
+func (Staff) Find(topic interface{}) middlewares.AuthInterface {
 	var id primitive.ObjectID
 	var err error
 	var staff Staff

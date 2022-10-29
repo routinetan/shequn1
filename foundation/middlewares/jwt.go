@@ -5,9 +5,9 @@ import (
 	"github.com/golang-jwt/jwt"
 	"github.com/pkg/errors"
 	"net/http"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/database"
-	"quanzi1/foundation/server"
+	"shequn1/foundation/app"
+	"shequn1/foundation/database"
+	"shequn1/foundation/server"
 )
 
 // Claims 生成token的结构体
@@ -26,8 +26,8 @@ type Claims struct {
 // AuthInterface 参与 jwt 数据表结构体需要实现这些接口
 type AuthInterface interface {
 	database.Table
-	GetTopic() interface{}                         // 返回唯一信息
-	FindByTopic(topic interface{}) AuthInterface   // 根据唯一信息标识获取数据信息, 比如根据用户id获取用户信息,需要注意传入的数据类型
+	GetUser() interface{}                          // 返回唯一信息
+	Find(topic interface{}) AuthInterface          // 根据唯一信息标识获取数据信息, 比如根据用户id获取用户信息,需要注意传入的数据类型
 	GetCheckData() string                          // 获取验证信息, jwt加密时, 改信息会一起进行加密, 解密时会解出来然后调用 Check 验证该信息的正确性, 如果是其他数据类型直接转string，比如是个结构体或者map, 直接转为json string
 	Check(ctx *gin.Context, checkData string) bool // 验证信息
 	ExpiredAt() int64                              // 返回过期时间,时间戳
@@ -48,7 +48,7 @@ func VerifyAuth(c *gin.Context) {
 	if token != "" {
 		claims, err := ParseToken(token)
 		if err == nil {
-			var entity = AuthEntity.FindByTopic(claims.ID)
+			var entity = AuthEntity.Find(claims.ID)
 			if entity.Check(c, claims.CheckData) {
 				c.Set(AuthKey, entity) // 向下设置用户信息,控制器可直接获取
 				c.Header(JwtHeaderKey, token)
@@ -66,7 +66,7 @@ func VerifyAuth(c *gin.Context) {
 
 func newClaims(entity AuthInterface) Claims {
 	return Claims{
-		entity.GetTopic(),
+		entity.GetUser(),
 		entity.GetCheckData(),
 		jwt.StandardClaims{
 			ExpiresAt: entity.ExpiredAt(),

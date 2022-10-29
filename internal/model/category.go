@@ -2,7 +2,7 @@ package model
 
 import (
 	"go.mongodb.org/mongo-driver/bson"
-	"quanzi1/foundation/database/mongo"
+	"shequn1/foundation/database/mongo"
 )
 
 // Category 商品分类, 分类示例

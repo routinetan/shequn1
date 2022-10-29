@@ -119,7 +119,7 @@ function ul1Content() {    //初始群数据
                     var hintImgLaber = data[j].hintImgLaber;
                     var hint_type = data[j].hint_type;
                     var hintImgUrl = "http://haobang81.oss-cn-beijing.aliyuncs.com/" + hintImg;
-                    var aLink = "/group_info.html?i=2&c=entry&do=qunDetail&m=yy_shequn2&itemId=" + itemId; //群详情页
+                    var aLink = "/group/info?itemId=" + itemId; //群详情页
                     var html2 = '';
                     html2 += '<li>';
                     html2 += '<div class="popup" id="popup' + itemId + '">';
@@ -228,7 +228,7 @@ function getMore() {//上拉到底时触发
                 var hintImgLaber = data[j].hintImgLaber;
                 var hint_type = data[j].hint_type;
                 var hintImgUrl = "http://haobang81.oss-cn-beijing.aliyuncs.com/" + hintImg;
-                var aLink = "./index.php?i=2&c=entry&do=qunDetail&m=yy_shequn2&itemId=" + itemId; //群详情页
+                var aLink = "/group/info?itemId=" + itemId; //群详情页
                 var html2 = '';
                 html2 += '<li>';
                 html2 += '<div class="popup" id="popup' + itemId + '">';
@@ -276,13 +276,13 @@ function getMore() {//上拉到底时触发
                     html2 += '	<div  style="color: #1aaf78;border: 0.15rem solid #1aaf78;width: 23%;text-align: center;width: 3.75rem;height: 1.82rem;border-radius: 1rem;font-size: 0.857rem;font-weight: bold;"   class="lr" >';
                 }
                 if (hint_type == 0) {  //跟随社群统一设置类型
-                    html2 += '<a class="ruqunBtnLink" onclick="autocpy();" href=' + aLink + '>' + ruqunname + '</a>';
+                    html2 += '<a class="ruqunBtnLink" onclick="autocpy();", href=' + aLink + '>' + ruqunname + '</a>';
                 } else if (hint_type == 1) {//调用自己弹窗
                     html2 += '<div  onclick="autocpy();clickBut(' + itemId + ')" class="ruqunBtn">' + ruqunname + '</div>';
                 } else if (hint_type == 2) {//直接入群
-                    html2 += '<a class="ruqunBtnLink" onclick="autocpy();" href=' + aLink + '>' + ruqunname + '</a>';
+                    html2 += '<a class="ruqunBtnLink" onclick="autocpy();", href=' + aLink + '>' + ruqunname + '</a>';
                 } else if (hint_type == 3) {//外链
-                    html2 += '<a class="ruqunBtnLink" onclick="autocpy();" href=' + linkUrl + '>' + ruqunname + '</a>';
+                    html2 += '<a class="ruqunBtnLink" onclick="autocpy();", href=' + linkUrl + '>' + ruqunname + '</a>';
                 }
 
                 html2 += '	</div>';

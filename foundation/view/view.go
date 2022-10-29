@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/os/gview"
-	"quanzi1/foundation/app"
+	"shequn1/foundation/app"
 )
 
 var View *gview.View

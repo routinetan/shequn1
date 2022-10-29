@@ -1,9 +1,9 @@
 package main
 
 import (
-	"quanzi1/foundation/engine"
-	"quanzi1/foundation/server"
-	"quanzi1/internal/front"
+	"shequn1/foundation/engine"
+	"shequn1/foundation/server"
+	"shequn1/internal/front"
 )
 
 func main() {

@@ -3,9 +3,9 @@ package pager
 import (
 	"fmt"
 	"gopkg.in/mgo.v2/bson"
-	"quanzi1/foundation/app"
-	db "quanzi1/foundation/database/mgo"
 	"reflect"
+	"shequn1/foundation/app"
+	db "shequn1/foundation/database/mgo"
 )
 
 var mgoObjectIDTyp = reflect.TypeOf(bson.ObjectId(""))

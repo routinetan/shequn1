@@ -5,8 +5,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"math/rand"
 	"net/http"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/sessions"
+	"shequn1/foundation/app"
+	"shequn1/foundation/sessions"
 	"sync"
 	"time"
 )

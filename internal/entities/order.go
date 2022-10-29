@@ -1,6 +1,6 @@
 package entities
 
-import "quanzi1/foundation/database/orm"
+import "shequn1/foundation/database/orm"
 
 // Order 使用 MySQL gorm 驱动示例
 type Order struct {

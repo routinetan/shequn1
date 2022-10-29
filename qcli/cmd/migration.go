@@ -106,7 +106,7 @@ func migrationRunCmdFunc(cmd *cobra.Command, args []string) {
 	//}
 	//fmt.Printf("The process id is %v", pid)
 	genCmd := exec.Command("go", "generate", "-x", "pre/main.go")
-	genCmd.Dir = "E:/goproject/quanzi1/qcli"
+	genCmd.Dir = "E:/goproject/shequn1/qcli"
 	err := genCmd.Run()
 	genCmd.Stdout = os.Stdout
 	genCmd.Stderr = os.Stderr

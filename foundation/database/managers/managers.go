@@ -3,8 +3,8 @@ package managers
 
 import (
 	"github.com/gin-gonic/gin"
-	"quanzi1/foundation/database"
 	"reflect"
+	"shequn1/foundation/database"
 )
 
 const (

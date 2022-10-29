@@ -37,7 +37,7 @@
     addr = "127.0.0.1:3306"
     username = "root"
     password = "root"
-    dbname = "100"
+    dbname = "quanzi1"
     max_idle = 100
     max_open = 100
 
@@ -97,3 +97,9 @@
 
 # cdn服务器的一些基本信息
 [cdn]
+
+
+[upload]
+prefix = "http://localhost:8082/" # 是否使用 elasticsearch
+publicdst = "/public/wx"
+dst = "./public/wx"

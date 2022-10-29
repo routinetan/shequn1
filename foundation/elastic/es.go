@@ -4,7 +4,7 @@ import (
 	"context"
 	"github.com/olivere/elastic/v7"
 	esConfig "github.com/olivere/elastic/v7/config"
-	"quanzi1/foundation/app"
+	"shequn1/foundation/app"
 )
 
 type config struct {

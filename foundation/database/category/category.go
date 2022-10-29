@@ -3,12 +3,12 @@ package category
 import (
 	"fmt"
 	"go.mongodb.org/mongo-driver/bson"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/database"
-	"quanzi1/foundation/database/mgo"
-	"quanzi1/foundation/database/mongo"
-	"quanzi1/foundation/database/orm"
 	"reflect"
+	"shequn1/foundation/app"
+	"shequn1/foundation/database"
+	"shequn1/foundation/database/mgo"
+	"shequn1/foundation/database/mongo"
+	"shequn1/foundation/database/orm"
 	"strings"
 )
 

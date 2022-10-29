@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"os"
-	"quanzi1/foundation/util"
+	"shequn1/foundation/util"
 )
 
 type MigrateJob struct {
@@ -25,7 +25,7 @@ type MigrateList struct {
 }
 
 func GetMigrateInfo() (MigrateHead, []MigrateList) {
-	migrationPath := "e:/goproject/quanzi1/data/migration"
+	migrationPath := "data/migration"
 	if util.Exists(migrationPath) == false {
 		os.MkdirAll(migrationPath, 0777)
 	}
@@ -40,11 +40,11 @@ func GetMigrateInfo() (MigrateHead, []MigrateList) {
 		panic(err)
 	}
 	var head MigrateHead
-	bhead, _ := ioutil.ReadAll(infop)
+	bhead, _ := ioutil.ReadAll(metap)
 	json.Unmarshal(bhead, &head)
 
 	var infolist []MigrateList
-	binfo, _ := ioutil.ReadAll(metap)
+	binfo, _ := ioutil.ReadAll(infop)
 	json.Unmarshal(binfo, &infolist)
 	return head, infolist
 }

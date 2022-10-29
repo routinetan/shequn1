@@ -3,7 +3,7 @@ package captcha
 import (
 	"github.com/go-redis/redis"
 	"github.com/mojocn/base64Captcha"
-	"quanzi1/foundation/app"
+	"shequn1/foundation/app"
 	"sync"
 	"time"
 )

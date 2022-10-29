@@ -3,7 +3,7 @@ package rbac
 
 import (
 	"github.com/gin-gonic/gin"
-	"quanzi1/foundation/database/managers"
+	"shequn1/foundation/database/managers"
 )
 
 // Inject 对managers注入该权限验证模块

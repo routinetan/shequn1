@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!-- saved from url=(0097)https://www.haobangyingxiaocehua.cn/app/index.php?i=2&c=entry&do=qunDetail&m=yy_shequn2&itemId=35 -->
+<html style="font-size: 57.6px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="/static/js/jweixin-1.6.0.js"></script>
+<script src="/static/js/util.js"></script>
+<script src="/static/js/require.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/mui.min.js"></script>
+<script src="/static/js/common.js"></script>
+<script type="text/javascript">
+window.sysinfo = {
+	'uniacid': '2',	'acid': '2',		'siteroot': 'https://www.haobangyingxiaocehua.cn/',
+	'siteurl': 'https://www.haobangyingxiaocehua.cn/app/index.php?i=2&c=entry&do=qunDetail&m=yy_shequn2&itemId=35',
+	'attachurl': 'http://haobang81.oss-cn-beijing.aliyuncs.com/',
+	'attachurl_local': 'https://www.haobangyingxiaocehua.cn/attachment/',
+	'attachurl_remote': 'http://haobang81.oss-cn-beijing.aliyuncs.com/',
+	'MODULE_URL': 'https://www.haobangyingxiaocehua.cn/addons/yy_shequn2/',	'cookie' : {'pre': 'f0XR_'}
+};
+jssdkconfig = null || {};
+jssdkconfig.debug = false;
+jssdkconfig.jsApiList = [
+	'checkJsApi',
+	'onMenuShareTimeline',
+	'onMenuShareAppMessage',
+	'onMenuShareQQ',
+	'onMenuShareWeibo',
+	'hideMenuItems',
+	'showMenuItems',
+	'hideAllNonBaseMenuItem',
+	'showAllNonBaseMenuItem',
+	'translateVoice',
+	'startRecord',
+	'stopRecord',
+	'onRecordEnd',
+	'playVoice',
+	'pauseVoice',
+	'stopVoice',
+	'uploadVoice',
+	'downloadVoice',
+	'chooseImage',
+	'previewImage',
+	'uploadImage',
+	'downloadImage',
+	'getNetworkType',
+	'openLocation',
+	'getLocation',
+	'hideOptionMenu',
+	'showOptionMenu',
+	'closeWindow',
+	'scanQRCode',
+	'chooseWXPay',
+	'openProductSpecificView',
+	'addCard',
+	'chooseCard',
+	'openCard',
+	'openAddress'
+];
+</script>
+<script>
+    wx.config(
+    {
+        debug: false,
+        appId: "",
+        timestamp: "",
+        nonceStr: "",
+        signature: "",
+        jsApiList: [
+            'checkJsApi',
+            'showOptionMenu',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ'
+        ]
+    });
+    wx.ready(function ()
+    {
+        wx.showOptionMenu();
+        wx.checkJsApi(
+        {
+            jsApiList: [
+                'getLocation',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ'
+            ],
+            success: function (res)
+            {
+
+            }
+        });
+        wx.onMenuShareAppMessage({
+            title: "哈尔滨吃喝玩乐群",
+            desc: "哈尔滨各种娱乐优惠尽在其中",
+            link:'https://www.haobangyingxiaocehua.cn/app/index.php?i=2&c=entry&do=qunDetail&m=yy_shequn2&itemId=35',
+            imgUrl: 'https://www.haobangyingxiaocehua.cn/addons/yy_shequn2/images/qunIco/qun0.jpg',
+            success: function () {
+            },
+            cancel: function () {
+            }
+        });
+        wx.onMenuShareQQ({
+            title: "哈尔滨吃喝玩乐群",
+            desc: "哈尔滨各种娱乐优惠尽在其中",
+            link:'https://www.haobangyingxiaocehua.cn/app/index.php?i=2&c=entry&do=qunDetail&m=yy_shequn2&itemId=35',
+            imgUrl: 'https://www.haobangyingxiaocehua.cn/addons/yy_shequn2/images/qunIco/qun0.jpg',
+            success: function () {
+            },
+            cancel: function () {
+            }
+        });
+        wx.onMenuShareTimeline(
+        {
+            title: "哈尔滨吃喝玩乐群",
+            imgUrl: 'https://www.haobangyingxiaocehua.cn/addons/yy_shequn2/images/qunIco/qun0.jpg',
+            trigger: function (res) {
+            },
+            success: function (res) {
+            },
+            cancel: function (res) {
+            },
+            fail: function (res) {
+            }
+        });
+        wx.error(function(res)
+        {
+        });
+    });
+</script>
+
+<title>哈尔滨吃喝玩乐群</title>
+<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width,height=device-height, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<script type="text/javascript">
+	document.getElementsByTagName('html')[0].style.fontSize = Math.min(window.innerWidth*12/320,200)+"px";
+</script>
+<script src="/static/js/jquery.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/css/css1.css">
+</head>
+<body style="min-height: 666px;">
+<div class="subpage" style="margin-bottom:0rem;">
+	<div class="header">
+		<a href="https://www.haobangyingxiaocehua.cn/app/index.php?i=2&amp;c=entry&amp;do=index&amp;m=yy_shequn2"><img src="/static/image/arrow.jpg"></a>
+		<p>哈尔滨吃喝玩乐群</p>
+	</div>
+		<div class="qunshow">
+                ${range $k,$v:= .Num}
+                <div class="show" onclick="clickButton()">
+                    <div class="showleft">
+                        <img src="/static/image/qun${$k}.jpg">
+                    </div>
+                    <div class="showright">
+                        <p class="name">群${$k}<span class="state">（已满）</span></p>
+                        <p class="num">${$v}/200</p>
+                    </div>
+                </div>
+                ${end}
+			</div>
+			<div class="fwords">
+			<a href="https://www.haobangyingxiaocehua.cn/app/index.php?i=2&amp;c=entry&amp;do=qunDetail&amp;m=yy_shequn2&amp;itemId=35" style="font-size:1.1rem;">群已满员，请长按下方二维码入新群</a>
+			<img src="/static/image/finger.png">
+	</div>
+		<div class="content" style="margin-top:0rem;width:90%;margin:0 auto;display: block;" id="touchArea">
+					<img class="groupbg" src="data:image/png;base64,${.QrCode|text}" style="width:100%;margin-top:1rem;">
+				</div>
+    <div class="novip" style="margin-bottom:10.5rem;margin-top: 2rem;display: none;" id="noShow">
+					<img src="/static/image/novip.jpg" class="novipbg">
+			<div class="novipt">
+				<img src="/static/image/qun7.jpg">
+				<span>哈尔滨吃喝玩乐群10</span>
+			</div>
+			<div class="novipp">
+								您不是本站VIP会员，无法进入此群							</div>
+		    </div>
+</div>
+<!-- 弹窗 -->
+<div class="popwind" id="man">
+	<div class="prompt">
+		<div class="inform">本群人数已达到上限,请进10群</div>
+		<div class="submit" onclick="closeButton()">确定</div>
+	</div>
+</div>
+${if .status}
+<!-- 弹窗 -->
+<!-- 群介绍 -->
+<div class="viptit">
+	<div class="vline"></div><div class="vcircle"></div><span>原价398元特价促销98元尊享VIP会员特权</span>
+	<div class="vcircle vcircle2"></div><div class="vline vline2"></div>
+</div>
+<div class="vipcont">
+	<span class="vctit">
+		<span class="vtq">特权</span>
+		<span class="vnum">1.</span>
+		<span class="vcc">VIP会员特权1</span>
+	</span>
+	<div class="vcont">
+		<div class="vcstate">成为VIP会员尊享随机拉入10个高质量资源群并提供自建群推广一个月！</div>
+		<div class="vimg">
+			<img src="/static/image/FbP7dIQjzBBbtfBQ7HwQBWEdHBWEdR.jpg">
+		</div>
+	</div>
+</div>
+<div class="vipcont">
+	<span class="vctit">
+		<span class="vtq">特权</span>
+		<span class="vnum">2.</span>
+		<span class="vcc">VIP会员特权2</span>
+	</span>
+	<div class="vcont">
+		<div class="vcstate">成为VIP会员尊享微商程序代理权并赠送手机程序APP一个！</div>
+		<div class="vimg">
+			<img src="/static/image/NgvgGfcJhJFvlv9zcgny4pFCVVgfGU.jpg">
+		</div>
+	</div>
+</div>
+<div class="vipcont">
+	<span class="vctit">
+		<span class="vtq">特权</span>
+		<span class="vnum">3.</span>
+		<span class="vcc">VIP会员特权3</span>
+	</span>
+	<div class="vcont">
+		<div class="vcstate">成为VIP会员尊享企业线上拓客推广~微信红包裂变拓客活动一场！</div>
+		<div class="vimg">
+			<img src="/static/image/b7n5A5KKBNTKhpd1AH6C68x0dTflhn.jpg">
+		</div>
+	</div>
+</div>
+<div class="vipcont">
+	<span class="vctit">
+		<span class="vtq">特权</span>
+		<span class="vnum">4.</span>
+		<span class="vcc">VIP会员特权4</span>
+	</span>
+	<div class="vcont">
+		<div class="vcstate">成为VIP会员尊享加油折扣APP和信用卡申请管理APP</div>
+		<div class="vimg">
+			<img src="/static/image/NJ9T0zlq32whn0kzWNJvZAnI00HKnl.jpg">
+		</div>
+	</div>
+</div>
+<div class="vipcont">
+	<span class="vctit">
+		<span class="vtq">特权</span>
+		<span class="vnum">5.</span>
+		<span class="vcc">VIP会员特权5</span>
+	</span>
+	<div class="vcont">
+		<div class="vcstate">成为VIP会员尊享本站分销商，获得高额佣金，提成高达50%</div>
+		<div class="vimg">
+			<img src="/static/image/ZN2aVD2v8nq7VDDz7gVZKve1U2Z272.jpg">
+		</div>
+	</div>
+</div>
+<div class="vipcont">
+	<span class="vctit">
+		<span class="vtq">特权</span>
+		<span class="vnum">6.</span>
+		<span class="vcc">VIP会员更多特权持续更新中……</span>
+	</span>
+	<div class="vcont">
+		<div class="vcstate"></div>
+		<div class="vimg">
+			<img src="/static/image/qrJOWWzNgiReWZWnwEQRIJOkkGoG1m.jpg">
+		</div>
+	</div>
+</div>
+${end}
+<!--
+<div style="margin-bottom:6rem;">
+		<a href="https://www.haobangyingxiaocehua.cn/app/index.php?i=2&amp;c=entry&amp;do=vipPay&amp;m=yy_shequn2">
+		<div class="vpay">立即支付</div>
+	</a>
+
+</div>-->
+<script>var imgs = document.getElementsByTagName('img');for(var i=0, len=imgs.length; i < len; i++){imgs[i].onerror = function() {if (!this.getAttribute('check-src') && (this.src.indexOf('http://') > -1 || this.src.indexOf('https://') > -1)) {this.src = this.src.indexOf('https://www.haobangyingxiaocehua.cn/attachment/') == -1 ? this.src.replace('http://haobang81.oss-cn-beijing.aliyuncs.com/', 'https://www.haobangyingxiaocehua.cn/attachment/') : this.src.replace('https://www.haobangyingxiaocehua.cn/attachment/', 'http://haobang81.oss-cn-beijing.aliyuncs.com/');this.setAttribute('check-src', true);}}};</script><script type="text/javascript" src="./info_files/index.php"></script>
+<script type="text/javascript" src="/static/js/base1.js"></script>
+<script type="text/javascript">
+	function clickButton(){
+		var man = document.getElementById('man');
+		man.style.display="block";
+	}
+	function closeButton(){
+		var man = document.getElementById('man');
+	    man.style.display="none";
+	}
+</script>
+</body></html>

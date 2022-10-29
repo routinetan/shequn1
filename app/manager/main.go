@@ -2,11 +2,11 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"quanzi1/foundation/engine"
-	"quanzi1/foundation/middlewares"
-	"quanzi1/foundation/server"
-	"quanzi1/internal/entities"
-	"quanzi1/internal/manager"
+	"shequn1/foundation/engine"
+	"shequn1/foundation/middlewares"
+	"shequn1/foundation/server"
+	"shequn1/internal/entities"
+	"shequn1/internal/manager"
 )
 
 // @Summary 订单1

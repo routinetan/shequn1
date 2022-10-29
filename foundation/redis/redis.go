@@ -2,7 +2,7 @@ package redis
 
 import (
 	"github.com/go-redis/redis"
-	"quanzi1/foundation/app"
+	"shequn1/foundation/app"
 	"time"
 )
 

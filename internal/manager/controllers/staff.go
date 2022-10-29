@@ -3,12 +3,12 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/database/mongo"
-	"quanzi1/foundation/middlewares"
-	"quanzi1/foundation/password"
-	"quanzi1/foundation/validator"
-	"quanzi1/internal/entities"
+	"shequn1/foundation/app"
+	"shequn1/foundation/database/mongo"
+	"shequn1/foundation/middlewares"
+	"shequn1/foundation/password"
+	"shequn1/foundation/validator"
+	"shequn1/internal/entities"
 )
 
 // LoginForm 登录表单验证结构体

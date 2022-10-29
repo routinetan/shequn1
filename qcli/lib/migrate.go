@@ -9,7 +9,7 @@ import (
 
 func main() {
 
-	dsn := "root:root@tcp(127.0.0.1:3306)/quanzi1?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:root@tcp(127.0.0.1:3306)/shequn1?charset=utf8mb4&parseTime=True&loc=Local"
 	dbhandle, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal(err)

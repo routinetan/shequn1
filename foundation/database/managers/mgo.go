@@ -3,12 +3,12 @@ package managers
 import (
 	"github.com/gin-gonic/gin"
 	"gopkg.in/mgo.v2/bson"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/database"
-	"quanzi1/foundation/database/mgo"
-	"quanzi1/foundation/pager"
-	"quanzi1/foundation/validator"
 	"reflect"
+	"shequn1/foundation/app"
+	"shequn1/foundation/database"
+	"shequn1/foundation/database/mgo"
+	"shequn1/foundation/pager"
+	"shequn1/foundation/validator"
 )
 
 var mgoObjectID = reflect.TypeOf(bson.ObjectId(""))

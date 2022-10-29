@@ -4,7 +4,7 @@ import (
 	"github.com/gin-contrib/sessions"
 	redisSession "github.com/gin-contrib/sessions/redis"
 	"github.com/gin-gonic/gin"
-	"quanzi1/foundation/app"
+	"shequn1/foundation/app"
 	"strconv"
 )
 

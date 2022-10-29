@@ -4,7 +4,7 @@ import (
 	"crypto/tls"
 	"fmt"
 	"net/smtp"
-	"quanzi1/foundation/app"
+	"shequn1/foundation/app"
 )
 
 func dial() (*smtp.Client, error) {

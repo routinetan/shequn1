@@ -4,10 +4,13 @@ import (
 	"fmt"
 	"github.com/gogf/gf/container/glist"
 	"github.com/gogf/gf/container/gset"
+	"go/ast"
+	"go/parser"
+	"go/token"
 	"io/ioutil"
 	"os"
-	"quanzi1/qcli/lib/migrate"
 	"runtime"
+	"shequn1/qcli/lib/migrate"
 	"strings"
 	"syscall"
 	"time"
@@ -38,7 +41,7 @@ func GetCreateTime(file os.FileInfo) int64 {
 func main() {
 	head, infolist := migrate.GetMigrateInfo()
 	mode := "front"
-	migrationPath := fmt.Sprintf("e:/goproject/quanzi1/internal/%s/database/migrate", mode)
+	migrationPath := fmt.Sprintf("e:/goproject/shequn1/internal/%s/database/migrate", mode)
 	files, _ := ioutil.ReadDir(migrationPath)
 	migrateFile := gset.New(true)
 	skipedFile := gset.New(true)
@@ -46,7 +49,7 @@ func main() {
 		migrateFile.Add(v.Name())
 	}
 	for _, v := range infolist {
-		skipedFile.Add(v)
+		skipedFile.Add(v.Name)
 	}
 	fmt.Println(head.CurVersion)
 	//跳过已经处理过的问价
@@ -61,12 +64,23 @@ func main() {
 		for k, v := range filenames {
 			filenames[k] = strings.ToUpper(string(v[0])) + v[1:]
 		}
-		jobName := strings.Join(filenames, "")
-		info, _ := os.Stat(migrationPath + "/" + filepath)
-		unixAt := GetCreateTime(info)
-		createAt := time.Unix(unixAt, 0).Format("20060102150405")
-		//添加已经处理过的文件记录
-		migrateName := fmt.Sprintf("migrate.%sMigrate_%s{}", jobName, createAt)
+		fset := token.NewFileSet()
+		f, err := parser.ParseFile(fset, migrationPath+"/"+filepath, nil, parser.DeclarationErrors)
+		if err != nil {
+			fmt.Println(err)
+		}
+		s := f.Decls[1]
+		item, ok := s.(*ast.GenDecl)
+		if !ok {
+			return false
+		}
+		item1 := item.Specs[0]
+		typSpec := item1.(*ast.TypeSpec)
+		if !ok {
+			return false
+		}
+		//添加已经处理过的文件记录5
+		migrateName := fmt.Sprintf("migrate.%s{Name:\"%s\"}", typSpec.Name, filepath)
 		migrations = append(migrations, migrateName)
 		return true
 	})
@@ -74,17 +88,18 @@ func main() {
 	jobcode := fmt.Sprintf(`package entitys
 import (
 	"gorm.io/gorm"
-	"quanzi1/internal/front/database/migrate"
+	"shequn1/internal/front/database/migrate"
 )
 //迁移任务
 type MigrateJob interface {
 	Down(db *gorm.DB)
 	Up(db *gorm.DB)
+    FileName() string
 }
 
 var Job = []MigrateJob{%s}`, jobs)
 
-	fp, err := os.OpenFile("../entitys/job.go", os.O_CREATE|os.O_RDWR, 0777)
+	fp, err := os.OpenFile("../entitys/job.go", os.O_CREATE|os.O_RDWR|os.O_TRUNC, 0777)
 	if err != nil {
 		fmt.Println("open error", err)
 		return

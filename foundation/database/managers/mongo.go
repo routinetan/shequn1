@@ -4,12 +4,12 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"quanzi1/foundation/app"
-	"quanzi1/foundation/database"
-	"quanzi1/foundation/database/mongo"
-	"quanzi1/foundation/pager"
-	"quanzi1/foundation/validator"
 	"reflect"
+	"shequn1/foundation/app"
+	"shequn1/foundation/database"
+	"shequn1/foundation/database/mongo"
+	"shequn1/foundation/pager"
+	"shequn1/foundation/validator"
 )
 
 var mongoObjectID = reflect.TypeOf(primitive.ObjectID{})

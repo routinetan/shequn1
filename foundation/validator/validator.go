@@ -9,8 +9,8 @@ import (
 	ut "github.com/go-playground/universal-translator"
 	"gopkg.in/go-playground/validator.v9"
 	translations "gopkg.in/go-playground/validator.v9/translations/en"
-	"quanzi1/foundation/app"
 	"reflect"
+	"shequn1/foundation/app"
 	"sync"
 )
 
