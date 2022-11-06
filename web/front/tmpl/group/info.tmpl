@@ -159,18 +159,21 @@ jssdkconfig.jsApiList = [
 			<a href="https://www.haobangyingxiaocehua.cn/app/index.php?i=2&amp;c=entry&amp;do=qunDetail&amp;m=yy_shequn2&amp;itemId=35" style="font-size:1.1rem;">群已满员，请长按下方二维码入新群</a>
 			<img src="/static/image/finger.png">
 	</div>
+	${if eq 3 .info.Status }
 		<div class="content" style="margin-top:0rem;width:90%;margin:0 auto;display: block;" id="touchArea">
 					<img class="groupbg" src="data:image/png;base64,${.QrCode|text}" style="width:100%;margin-top:1rem;">
 				</div>
-    <div class="novip" style="margin-bottom:10.5rem;margin-top: 2rem;display: none;" id="noShow">
+	${else}
+    <div class="novip" style="margin-bottom:10.5rem;margin-top: 2rem;" id="noShow">
 					<img src="/static/image/novip.jpg" class="novipbg">
 			<div class="novipt">
 				<img src="/static/image/qun7.jpg">
 				<span>哈尔滨吃喝玩乐群10</span>
 			</div>
 			<div class="novipp">
-								您不是本站VIP会员，无法进入此群							</div>
+								您还未付费，无法进入此群							</div>
 		    </div>
+	${end}
 </div>
 <!-- 弹窗 -->
 <div class="popwind" id="man">
@@ -265,13 +268,17 @@ ${if .status}
 	</div>
 </div>
 ${end}
-<!--
-<div style="margin-bottom:6rem;">
-		<a href="https://www.haobangyingxiaocehua.cn/app/index.php?i=2&amp;c=entry&amp;do=vipPay&amp;m=yy_shequn2">
-		<div class="vpay">立即支付</div>
-	</a>
+${if eq 1 .info.Status }
+<div class="botbtn">
+	<div class="botright">
+		<span class="botpay">支付3.69元进群</span>
+		<span class="botpaybtn">
+						<a href="./index.php?i=3&amp;c=entry&amp;id=428&amp;do=buyqunitem&amp;m=yy_shequn2" style="color:#e02e24;">支付</a>
 
-</div>-->
+		</span>
+	</div>
+</div>
+${end}
 <script>var imgs = document.getElementsByTagName('img');for(var i=0, len=imgs.length; i < len; i++){imgs[i].onerror = function() {if (!this.getAttribute('check-src') && (this.src.indexOf('http://') > -1 || this.src.indexOf('https://') > -1)) {this.src = this.src.indexOf('https://www.haobangyingxiaocehua.cn/attachment/') == -1 ? this.src.replace('http://haobang81.oss-cn-beijing.aliyuncs.com/', 'https://www.haobangyingxiaocehua.cn/attachment/') : this.src.replace('https://www.haobangyingxiaocehua.cn/attachment/', 'http://haobang81.oss-cn-beijing.aliyuncs.com/');this.setAttribute('check-src', true);}}};</script><script type="text/javascript" src="./info_files/index.php"></script>
 <script type="text/javascript" src="/static/js/base1.js"></script>
 <script type="text/javascript">

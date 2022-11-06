@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html style="font-size: 26.7px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>哈尔_人脉圈</title>
+<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width,height=device-height, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<script type="text/javascript">
+	document.getElementsByTagName('html')[0].style.fontSize = Math.min(window.innerWidth*12/320,200)+"px";
+</script>
+<script src="/static/js/jquery.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/css/css.css">
+</head>
+<body style="min-height: 722px;">
+<div class="subpage">
+	<div class="header">
+		<a href="https://www.haobangyingxiaocehua.cn/app/index.php?i=2&amp;c=entry&amp;do=index&amp;m=yy_shequn2"><img src="/static/image/arrow.jpg"></a>
+		<p>以下是您搜索的结果：</p>
+	</div>
+	<div class="swiper-container swiper2">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide swiper-no-swiping">
+				<div><div class="list" id="hmcl" style="margin-top:0rem;">
+					<div id="wrapper">
+            			<div id="scroller">
+							<ul class="u1" id="ul1">
+							      ${range $k,$val :=.Groups}
+                                  <li>
+                                      <div class="popup" id="popup34">
+                                        <div class="popc" style="margin:25% auto;">
+                                            <img src="/static/image/delet.png" class="delet" onclick="closeBut(34)">
+                                            <span>微信链接拓客</span>
+                                            <img src="/static/image/NFhfH60pDfJEEFS0srnhpSqQPRhdR6.jpg" class="eq">
+                                            <p>赠送好礼</p>
+                                            <span>加我微信13945066490，各行业，美容美体、纹绣微整、美甲美睫、美发烫染、瑜伽健身等行业微信营销链接！</span>
+                                        </div>
+                                        <div class="joinqz" style="width:100%;margin:0 auto;">
+                                            <a href="https://www.haobangyingxiaocehua.cn/app/index.php?i=2&amp;c=entry&amp;do=qunDetail&amp;m=yy_shequn2&amp;itemId=34" class="joinq" style="background-color:#12a72e;">不了,我要直接入群&gt;</a>
+                                        </div>
+                                      </div>
+                                      <div class="llf">
+                                        <img src="/static/image/qun4.jpg">
+                                      </div>
+                                      <div class="lc">
+                                          <p class="lcp">${$val.Title}</p>
+                                          <p class="lct">${$val.Label}</p>
+                                      </div>
+                                      <div style="color: #1aaf78;border: 0.15rem solid #1aaf78;width: 23%;text-align: center;width: 3.75rem;height: 1.82rem;border-radius: 1rem;font-size: 0.857rem;font-weight: bold;" class="lr">
+                                            <a class="ruqunBtnLink" href="https://www.haobangyingxiaocehua.cn/app/index.php?i=2&amp;c=entry&amp;do=qunDetail&amp;m=yy_shequn2&amp;itemId=34">入群</a>
+                                    	</div>
+                                  </li>
+                                  ${end}
+							</ul>
+						</div>
+					</div>
+                	<!-- <div class="pull-loading">
+						<img src="../addons/yy_shequn2/template/mobile/images/upload.png"/>
+						<p>加载更多...</p>
+					</div> -->
+				</div></div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<script>
+var imgs = document.getElementsByTagName('img');for(var i=0, len=imgs.length; i < len; i++)
+{imgs[i].onerror = function()
+{if (!this.getAttribute('check-src') && (this.src.indexOf('http://') > -1 || this.src.indexOf('https://') > -1))
+{this.src = this.src.indexOf('https://www.haobangyingxiaocehua.cn/attachment/') == -1 ?
+this.src.replace('http://haobang81.oss-cn-beijing.aliyuncs.com/', 'https://www.haobangyingxiaocehua.cn/attachment/')
+: this.src.replace('https://www.haobangyingxiaocehua.cn/attachment/', 'http://haobang81.oss-cn-beijing.aliyuncs.com/');
+this.setAttribute('check-src', true);}}};</script>
+<script type="text/javascript" src="/static/js/base.js"></script>
+<script type="text/javascript" src="/static/js/iscroll.js"></script>
+<script type="text/javascript">
+
+	function clickButton(){
+		var popupName = 'pop';
+		var popup = document.getElementById(popupName);
+	    popup.style.display="block";
+	}
+	function closeButton(){
+		var popupName = 'pop';
+		var popup=document.getElementById(popupName);
+		popup.style.display="none";
+	}
+</script>
+<script>
+	function clickBut(itemId){
+		var popupName = 'popup'+itemId;
+		var popup = document.getElementById(popupName);
+	    popup.style.display="block";
+	}
+	function closeBut(itemId){
+		var popupName = 'popup'+itemId;
+		var popup=document.getElementById(popupName);
+		popup.style.display="none";
+	}
+	function tomedia_js(imgurl){
+		var url = "http://haobang81.oss-cn-beijing.aliyuncs.com/";
+		return url + imgurl;
+	}
+	function getruqunname(fname,cname,dname){
+		var v=dname;
+		if(fname!=undefined && fname!="")
+			v=fname;
+		else if(cname!=undefined && cname!="")
+			v=cname;
+		return v;
+	}
+</script>
+
+<script type="text/javascript">
+
+</script>
+
+</body></html>
