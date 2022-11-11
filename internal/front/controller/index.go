@@ -10,11 +10,11 @@ import (
 
 // List 自定义 List 方法
 func Index(ctx *gin.Context) {
-	cateId := ctx.DefaultQuery("cate_id", "0")
+	cateId := ctx.DefaultQuery("cate_id", "")
 	app.Logger().Println("called this method")
 	view.View.AddPath("/index")
 	navs := service.GetNavList()
-	data, _ := view.View.Parse(ctx, "index.tmpl", g.Map{"navs": navs, "cate_id": cateId})
+	data, _ := view.View.Parse(ctx, "index.tmpl", g.Map{"navs": navs, "CateId": cateId})
 	ctx.Status(200)
 	ctx.Writer.WriteString(data)
 }

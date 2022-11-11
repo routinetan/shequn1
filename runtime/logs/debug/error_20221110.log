@@ -1,0 +1,7 @@
+{"level":"error","msg":"Error 1146: Table 'quanzi1.system_cfg' doesn't exist","time":"2022-11-10T11:34:16+08:00"}
+{"level":"error","msg":"Error 1054: Unknown column 'alias' in 'field list'","time":"2022-11-10T11:42:13+08:00"}
+{"level":"error","msg":"Error 1054: Unknown column 'alias' in 'field list'","time":"2022-11-10T11:46:40+08:00"}
+{"level":"error","msg":"Error 1054: Unknown column 'alias' in 'field list'","time":"2022-11-10T11:46:55+08:00"}
+{"level":"error","msg":"json: Unmarshal(non-pointer model.SystemSetting)","time":"2022-11-10T13:04:39+08:00"}
+{"level":"error","msg":"open runtime/cfg/system_cfg.json: The system cannot find the file specified.","time":"2022-11-10T17:08:03+08:00"}
+{"level":"error","msg":"open runtime/cfg/system_cfg.json: The system cannot find the file specified.","time":"2022-11-10T17:27:46+08:00"}

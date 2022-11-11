@@ -85,9 +85,6 @@ export default {
       })
     }
   },
-  created() {
-    this.group_id = this.$route.params.id
-  }
 }
 </script>
 <style scoped>

@@ -1,70 +1,20 @@
-<style scoped>
-html,body{
-  height:100vh;
-}
-.layout{
-  border: 1px solid #d7dde4;
-  background: #f5f7f9;
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-  height: 100%;
-}
-.layout-breadcrumb{
-  padding: 10px 15px 0;
-}
-.layout-content{
-  min-height: 200px;
-  margin: 15px;
-  overflow: hidden;
-  background: #fff;
-  border-radius: 4px;
-}
-.layout-content-main{
-  padding: 10px;
-  height:80vh;
-}
-.layout-copy{
-  text-align: center;
-  padding: 10px 0 20px;
-  color: #9ea7b4;
-}
-.layout-menu-left{
-  background: #001529;
-}
-.layout-header{
-  height: 60px;
-  background: #fff;
-  box-shadow: 0 1px 1px rgba(0,0,0,.1);
-}
-.layout-logo-left{
-  width: 90%;
-  height: 30px;
-  background: #5b6270;
-  border-radius: 3px;
-  margin: 15px auto;
-}
-.layout-ceiling-main a{
-  color: #9ba7b5;
-}
-.layout-hide-text .layout-text{
-  display: none;
-}
-.ivu-col{
-  transition: width .2s ease-in-out;
-}
-</style>
 <template>
-    <div>
-        <Row :gutter="4" >
-                <Button type="primary"  to="/group/2/qrcode/add">新增活码</Button>
-        </Row>
-        <Br />
-        <Row>
-              <Table border :columns="columns1" :data="list">
-              </Table>
-        </Row>
-    </div>
+    <Row>
+      <Row class="action"  :gutter="70">
+        <Col span="1" >
+          <Button type="primary" size="large" to="/group/2/qrcode/add" >新增活码</Button>
+        </Col>
+      </Row>
+      <Row>
+        <Table size="large" :columns="columns1" :data="list">
+        </Table>
+      </Row>
+      <Row class="table_footer">
+        <Col offset="16" >
+          <Page :total="page.total" size="small" @on-change="changePage" show-total="true"  show-elevator="true" />
+        </Col>
+      </Row>
+    </Row>
 </template>
 <script>
 export default {
@@ -74,6 +24,10 @@ export default {
       spanRight: 19,
       title:"",
       group_id:"",
+      page:{
+        total:0,
+        page_size:0,
+      },
       columns1: [
         {
           title: 'id',
@@ -93,7 +47,19 @@ export default {
         },
         {
           title: '状态',
-          key: 'status'
+          key: 'status',
+          render: (h, params) => {
+            let status = 'success'
+            let txt = '开启'
+            if (params.row.is_show == 0) {
+              status ='error'
+              txt = '关闭'
+            }
+            return h('Badge', {props: {
+                status:status,
+                text:txt
+              },},txt)
+          }
         },
         {
           title: '操作',
@@ -102,31 +68,23 @@ export default {
           align: 'center',
           render: (h, params) => {
             return h('div', [
-              h('Button', {
-                props: {
-                  type: 'primary',
-                  size: 'small'
-                },
-                style: {
-                  marginRight: '5px'
-                },
+              h('a', {
                 on: {
-                  click: () => {
-                    this.show(params.index);
+                  click: (row) => {
+                    let id = params.row.id
+                    this.$router.push('/group/'+id+'/qrcode')
                   }
                 }
-              }, '查看'),
-              h('Button', {
-                props: {
-                  type: 'error',
-                  size: 'small'
-                },
+              }, '编辑'),
+              h('Divider', {props :{type:"vertical"}}),
+              h('a', {
                 on: {
                   click: () => {
-                    this.remove(params.index)
+                    let id = params.row.id
+                    this.$router.push({path:'/group/'+id,query:params.row})
                   }
                 }
-              }, '删除')
+              }, '删除'),
             ]);
           }
         }
@@ -152,15 +110,6 @@ export default {
     }
   },
   methods: {
-    toggleClick () {
-      if (this.spanLeft === 5) {
-        this.spanLeft = 2;
-        this.spanRight = 22;
-      } else {
-        this.spanLeft = 5;
-        this.spanRight = 19;
-      }
-    },
     show (index) {
       this.$Modal.info({
         title: 'User Info',
@@ -169,7 +118,39 @@ export default {
     },
     remove (index) {
       this.data6.splice(index, 1);
+    },
+    changePage(page) {
+      this.Request({
+        url:'/qrcodes',
+        method:"GET",
+        params:{"group_id":this.group_id,'num':page-1}
+      }).then(response => {
+        let list = response.data.data
+        this.list = list
+      })
     }
   }
 }
 </script>
+<style scoped>
+html,body{
+  height:100vh;
+}
+.layout-ceiling-main a{
+  color: #9ba7b5;
+}
+.layout-hide-text .layout-text{
+  display: none;
+}
+.ivu-col{
+  transition: width .2s ease-in-out;
+}
+.action {
+  padding: 10px 0 10px 15px;
+}
+
+.table_footer {
+  padding-top:10px;
+  padding-left: 10px;
+}
+</style>

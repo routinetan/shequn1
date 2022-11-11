@@ -11,8 +11,6 @@ export default {};
 html,body{
   height:100%;
   width:100%;
-  border:hidden;
-  overflow:hidden;
   font-size:24px;
 }
 #app{

@@ -21,8 +21,11 @@ func (qrcode Qrcode) Index(ctx *gin.Context) {
 	//html, _ := view.View.Parse(ctx, "index.tmpl")
 
 	qrcodeThumb := service.UserScanLogic(groupId)
-	f, _ := os.Open(qrcodeThumb)
-	io.Copy(ctx.Writer, f)
+	if qrcodeThumb != "" {
+		f, _ := os.Open(qrcodeThumb)
+		io.Copy(ctx.Writer, f)
+		return
+	}
 	//
 	//ctx.Redirect(308, url)
 

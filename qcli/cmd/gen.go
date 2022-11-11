@@ -3,6 +3,10 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
+	"html/template"
+	"os"
+	"strings"
+	time2 "time"
 )
 
 func genModuleCmdFunc(cmd *cobra.Command, args []string) {
@@ -19,9 +23,41 @@ func genModuleCmdFunc(cmd *cobra.Command, args []string) {
 	}
 }
 
+func genMigrateCmdFunc(cmd *cobra.Command, args []string) {
+	if len(args) < 1 {
+		fmt.Println("migrate latest have one params")
+	}
+	table := args[0]
+	migrateName := args[0]
+	if strings.Contains(table, "_") {
+		words := strings.Split(table, "_")
+		for k, v := range words {
+			words[k] = strings.ToUpper(string(v[0])) + v[1:]
+		}
+		migrateName = strings.Join(words, "")
+	}
+	module, _ := cmd.Flags().GetString("m")
+	migrateFile := fmt.Sprintf("../internal/%s/database/migrate/%s.go", module, table)
+	fp, err := os.OpenFile(migrateFile, os.O_RDWR|os.O_CREATE, 0777)
+	if err != nil {
+		panic(err)
+	}
+	time := time2.Now().Format("200601021504")
+	migrateName = fmt.Sprintf("%s_%s", migrateName, time)
+	fmt.Println(migrateName)
+	tpl, err := template.ParseFiles("tpl/migrate/migrate.tpl")
+	if err != nil {
+		panic(err)
+	}
+	data := make(map[string]interface{})
+	data["Name"] = migrateName
+
+	tpl.Execute(fp, data)
+}
+
 func genModelCmdFunc(cmd *cobra.Command, args []string) {
 	fmt.Println("test cmd function execute.")
-	
+
 	if len(args) > 0 {
 		i := 0
 		for i = 0; i < len(args); i++ {
@@ -49,7 +85,6 @@ func genServiceCmdFunc(cmd *cobra.Command, args []string) {
 
 func genDAOCmdFunc(cmd *cobra.Command, args []string) {
 	fmt.Println("test cmd function execute.")
-
 	if len(args) > 0 {
 		i := 0
 		for i = 0; i < len(args); i++ {
@@ -57,7 +92,6 @@ func genDAOCmdFunc(cmd *cobra.Command, args []string) {
 			fmt.Printf("  args[%d]:%s\r\n", i, args[i])
 
 		}
-
 	}
 }
 
@@ -103,7 +137,7 @@ COMMAND
     dao        running go codes with hot-compiled-like feature...
     model      create and initialize an empty qcli project...
     view       show more information about a specified command
-    migrateJob    create migration file 
+    migrate    create migration file 
     api        packing any file/directory to a resource file, or a go file...
     vueview    packing any file/directory to a resource file, or a go file...
 OPTION
@@ -118,14 +152,14 @@ ADDITIONAL
 }
 
 var modelCmd = &cobra.Command{
-	Use:   "gen model",
+	Use:   "model",
 	Short: "gen model",
 	Long:  `这条命令可以用来生成model`,
 	Run:   testCmdFunc,
 }
 
 var curdCmd = &cobra.Command{
-	Use:   "gen curd",
+	Use:   "curd",
 	Short: "gen curd",
 	Long: `A longer description that spans multiple lines and likely contains
 examples and usage of using your application. For example:
@@ -136,7 +170,7 @@ to quickly create a Cobra application.`,
 }
 
 var daoCmd = &cobra.Command{
-	Use:   "gen dao",
+	Use:   "dao",
 	Short: "gen dao",
 	Long: `A longer description that spans multiple lines and likely contains
 examples and usage of using your application. For example:
@@ -147,7 +181,7 @@ to quickly create a Cobra application.`,
 }
 
 var viewCmd = &cobra.Command{
-	Use:   "gen view",
+	Use:   "view",
 	Short: "gen view",
 	Long: `A longer description that spans multiple lines and likely contains
 examples and usage of using your application. For example:
@@ -158,15 +192,16 @@ to quickly create a Cobra application.`,
 }
 
 var genMigrateCmd = &cobra.Command{
-	Use:   "migrateJob",
-	Short: "gen view",
+	Use:   "migrate",
+	Short: "gen migrate",
 	Long:  `create migration file`,
-	Run:   testCmdFunc,
+	Run:   genMigrateCmdFunc,
 }
 
 func init() {
 	genCmd.AddCommand(daoCmd)
 	genCmd.AddCommand(curdCmd)
 	genCmd.AddCommand(modelCmd)
+	genMigrateCmd.Flags().String("m", "admin", "指定module")
 	genCmd.AddCommand(genMigrateCmd)
 }

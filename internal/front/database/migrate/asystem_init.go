@@ -22,7 +22,9 @@ func (tx AsystemInitMigrate_20220929214331) Up(db *gorm.DB) {
 		IsShow    int    `gorm:"column:is_show"`
 		Status    int    `gorm:"colum:status"`
 		Tag       string `gorm:"colum:tag"`
+		Price     string `gorm:"price"`
 		Thumb     string `gorm:"thumb"`
+		MaxNum    int    `gorm:"max_num"`
 	}
 	type GroupInfo struct {
 		GroupId      string `gorm:"column:group_id"`

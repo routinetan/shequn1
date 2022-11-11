@@ -2,9 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"io"
 	"io/ioutil"
 	"os"
 	"shequn1/foundation/util"
@@ -23,22 +23,28 @@ func main() {
 		os.MkdirAll(migrationPath, 0777)
 	}
 
-	infop, err := os.OpenFile(migrationPath+"/db_info.json", os.O_CREATE|os.O_RDWR|os.O_TRUNC, os.ModePerm)
+	infop, err := os.OpenFile(migrationPath+"/db_info.json", os.O_CREATE|os.O_RDWR, os.ModePerm)
 	if err != nil {
 		panic(err)
 	}
 
-	metap, err := os.OpenFile(migrationPath+"/db.json", os.O_CREATE|os.O_RDWR|os.O_TRUNC, os.ModePerm)
+	metap, err := os.OpenFile(migrationPath+"/db.json", os.O_CREATE|os.O_RDWR, os.ModePerm)
 	if err != nil {
 		panic(err)
 	}
 
 	var head migrate.MigrateHead
-	bhead, _ := ioutil.ReadAll(metap)
+	bhead, err := ioutil.ReadAll(metap)
+	if err != nil {
+		panic(err)
+	}
 	json.Unmarshal(bhead, &head)
 
 	var infolist []migrate.MigrateList
-	binfo, _ := ioutil.ReadAll(infop)
+	binfo, err := ioutil.ReadAll(infop)
+	if err != nil {
+		panic(err)
+	}
 	json.Unmarshal(binfo, &infolist)
 	head.CurVersion += 1
 	for _, v := range migrate2.Job {
@@ -56,7 +62,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(string(shead))
+	metap.Seek(0, io.SeekStart)
 	_, err = metap.WriteString(string(shead))
 	if err != nil {
 		panic(err)
@@ -65,7 +71,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(string(sinfolist))
+	infop.Seek(0, io.SeekStart)
 	_, err = infop.WriteString(string(sinfolist))
 	if err != nil {
 		panic(err)

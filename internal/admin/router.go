@@ -52,8 +52,12 @@ func GetRouter(engine *gin.Engine) {
 	apiv1 := engine.Group("/apiv1")
 	apiv1.GET("/groups", controller.Group{}.List)
 	apiv1.GET("/group/:id", controller.Group{}.Info)
+	apiv1.POST("/group/base", controller.Group{}.CreateGroupBase)
+	apiv1.POST("/group/:id/base", controller.Group{}.ModifyGroupBase)
 	apiv1.GET("/qrcodes", controller.Qrcode{}.List)
 	apiv1.POST("/qrcode/add", controller.Qrcode{}.Create)
+	apiv1.GET("/systemCfg", controller.Setting{}.GetSystemConfig)
+	apiv1.POST("/systemCfg", controller.Setting{}.SaveSystemConfig)
 	// CSRFtoken支持, 因为 upload 不需要受 CSRFtoken 限制, 故将上传接口放在了上边
 	//engine.Use(middlewares.CsrfToken)
 

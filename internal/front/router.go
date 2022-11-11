@@ -31,6 +31,7 @@ func GetRouter(engine *gin.Engine) {
 	// 加载模板
 	engine.LoadHTMLGlob("web/front/tmpl/*/*")
 	engine.StaticFS("/static", http.Dir("./web/static"))
+	engine.StaticFS("/public", http.Dir("./public"))
 	// 注册公用的中间件
 	engine.Use(middlewares.CORS)
 	engine.Use(middlewares.RegisterFuc)
@@ -38,6 +39,8 @@ func GetRouter(engine *gin.Engine) {
 	engine.GET("/", controller.Index)
 	engine.GET("/group_list", controller.Group{}.List)
 	engine.GET("/group/info", controller.Group{}.Info)
+
+	engine.POST("/search", controller.Search{}.Index)
 	engine.GET("/qrcode/:group_id", controller.Qrcode{}.Index)
 	// 注册一个权限验证的中间件
 	//engine.Use(managerMiddleWares.CheckPermission)

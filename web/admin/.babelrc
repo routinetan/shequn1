@@ -5,6 +5,6 @@
   "comments": false,
   "plugins": [
     "transform-runtime",
-    "transform-vue-jsx",
+    "transform-vue-jsx"
   ]
 }

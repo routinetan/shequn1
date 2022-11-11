@@ -26,7 +26,7 @@ func GetQrcodeList(page, groupId int) g.Map {
 	var countRows int
 	orm.Master().Where("group_id = ?", groupId).Find(&qrcodes).Count(&countRows)
 	p := paginator.NewPagintor(0, countRows)
-	orm.Master().Offset(page * p.Rows).Limit(p.Rows).Order("id desc").Find(&qrcodes)
+	orm.Master().Where("group_id = ?", groupId).Offset(page * p.Rows).Limit(p.Rows).Order("id desc").Find(&qrcodes)
 	gconv.Structs(qrcodes, &OpQrcodes)
 	rownum := countRows / p.Rows
 	var upload Upload
@@ -44,7 +44,7 @@ func UserScanLogic(groupId int) string {
 	//更换二维码,重置当前前台显示入群总人数
 	//增加统计人群人数
 	//给机器人发日志,通知其开始给进群的用户打招呼
-	group := model.Group{ID: groupId}
+	group := model.Group{Id: groupId}
 	orm.Master().First(&group)
 	qrcode := model.Qrcode{GroupId: groupId, Status: entities.QRCODE_STATUS_NORMAL}
 	orm.Master().First(&qrcode)

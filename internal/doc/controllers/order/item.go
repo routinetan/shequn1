@@ -18,21 +18,7 @@ type Category struct {
 
 var once sync.Once
 
-var tempData = []entities.Category{
-	{ID: "1", Pid: "", Alias: "aaa", Name: "顶级分类一", Pic: "无", Badge: "无", Description: "无", Level: 1},
-	{ID: "2", Pid: "", Alias: "bbb", Name: "顶级分类二", Pic: "无", Badge: "无", Description: "无", Level: 1},
-	{ID: "3", Pid: "", Alias: "ccc", Name: "顶级分类三", Pic: "无", Badge: "无", Description: "无", Level: 1},
-	{ID: "4", Pid: "1", Alias: "aaa-1", Name: "顶级分类一(子分类1)", Pic: "无", Badge: "无", Description: "无", Level: 2},
-	{ID: "5", Pid: "1", Alias: "aaa-2", Name: "顶级分类一(子分类2)", Pic: "无", Badge: "无", Description: "无", Level: 2},
-	{ID: "6", Pid: "1", Alias: "aaa-3", Name: "顶级分类一(子分类3)", Pic: "无", Badge: "无", Description: "无", Level: 2},
-	{ID: "7", Pid: "2", Alias: "bbb-1", Name: "顶级分类二(子分类1)", Pic: "无", Badge: "无", Description: "无", Level: 2},
-	{ID: "8", Pid: "2", Alias: "bbb-2", Name: "顶级分类二(子分类2)", Pic: "无", Badge: "无", Description: "无", Level: 2},
-	{ID: "9", Pid: "2", Alias: "bbb-3", Name: "顶级分类二(子分类3)", Pic: "无", Badge: "无", Description: "无", Level: 2},
-	{ID: "10", Pid: "3", Alias: "ccc-1", Name: "顶级分类三(子分类1)", Pic: "无", Badge: "无", Description: "无", Level: 2},
-	{ID: "11", Pid: "3", Alias: "ccc-2", Name: "顶级分类三(子分类2)", Pic: "无", Badge: "无", Description: "无", Level: 2},
-	{ID: "12", Pid: "3", Alias: "ccc-3", Name: "顶级分类三(子分类3)", Pic: "无", Badge: "无", Description: "无", Level: 2},
-	{ID: "13", Pid: "5", Alias: "aaa-2-1", Name: "顶级分类一(子分类2)-(子分类1)", Pic: "无", Badge: "无", Description: "无", Level: 3},
-}
+var tempData = []entities.Category{}
 
 // NewCategory 实例化控制器
 func NewCategory() *Category {

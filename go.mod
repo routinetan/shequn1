@@ -45,12 +45,12 @@ require (
 	github.com/swaggo/swag v1.8.1 // indirect
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
 	go.mongodb.org/mongo-driver v1.7.2
-	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/text v0.3.7
 	//gopkg.in/confluentinc/confluent-kafka-go.v1 v1.8.2
 	//gopkg.in/confluentinc/confluent-kafka-go.v1 v1.7.0
 	gopkg.in/go-playground/validator.v9 v9.31.0
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
-	gorm.io/driver/mysql v1.0.1
-	gorm.io/gorm v1.20.0
+	gorm.io/datatypes v1.0.6
+	gorm.io/driver/mysql v1.3.2
+	gorm.io/gorm v1.23.2
 )

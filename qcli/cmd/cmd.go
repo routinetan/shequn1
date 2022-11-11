@@ -44,15 +44,6 @@ ADDITIONAL
 func testCmdFunc(cmd *cobra.Command, args []string) {
 	fmt.Println("test cmd function execute.")
 
-	if len(args) > 0 {
-		i := 0
-		for i = 0; i < len(args); i++ {
-
-			fmt.Printf("  args[%d]:%s\r\n", i, args[i])
-
-		}
-
-	}
 }
 
 // 执行 rootCmd 命令并检测错误

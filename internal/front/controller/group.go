@@ -26,11 +26,12 @@ func (group Group) List(ctx *gin.Context) {
 }
 
 func (group Group) Info(ctx *gin.Context) {
+	id := ctx.DefaultQuery("itemId", "")
 	view.View.AddPath("group")
 	params := g.Map{
 		"status": 0,
 	}
-
+	groupInfo := service.GetGroupInfo(gconv.Int(id))
 	table := make(map[int]string)
 	table[10] = "197"
 	table[20] = "199"
@@ -43,11 +44,19 @@ func (group Group) Info(ctx *gin.Context) {
 	for i := 1; i < maxNum; i++ {
 		num[i] = Poll(cfg)
 	}
-
+	var imgByte []byte
 	num[maxNum] = "198"
 	params["Num"] = num
-	imgByte, _ := qrcode.Encode(fmt.Sprintf("http://192.168.31.172:8081/qrcode/%d", rand.Int()), qrcode.Medium, 256)
+	params["info"] = groupInfo
+	groupId, ok := groupInfo["group_id"]
+	if ok {
+		imgByte, _ = qrcode.Encode(fmt.Sprintf("http://192.168.31.172:8081/qrcode/%d", groupId), qrcode.Medium, 256)
+	} else {
+		content, _ := groupInfo["default_wechat_qrcodeurl"].(string)
+		imgByte, _ = qrcode.Encode(content, qrcode.Medium, 256)
+	}
 	baseImg := base64.StdEncoding.EncodeToString(imgByte)
+	//如果所有群已经满了,则用个位微信置换
 
 	params["QrCode"] = baseImg
 	data, _ := view.View.Parse(ctx, "info.tmpl", params)

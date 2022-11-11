@@ -1,4 +1,6 @@
 <template>
+  <Row>
+  <Col span="12">
   <Form :model="formItem" :label-width="80">
     <FormItem label="群名">
       <Input v-model="formItem.title" placeholder="请输入6个以内的汉字"></Input>
@@ -34,6 +36,8 @@
       <Button type="primary"  @click="handleSubmit()">提交</Button>
     </FormItem>
   </Form>
+  </Col >
+  </Row >
 </template>
 <script>
 import config from '@/api/config.js'
@@ -49,7 +53,7 @@ export default {
         title: "第6群",
         max_num: 200,
         base_num:198,
-        status:true,
+        status:1,
         qrcode_url:''
       }
     }

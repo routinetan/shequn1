@@ -2,7 +2,7 @@ package entities
 
 // Category 商品分类, 分类示例
 type Category struct {
-	ID   string
+	Id   string
 	Name string
 }
 

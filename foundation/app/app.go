@@ -4,15 +4,22 @@
 package app
 
 import (
+	"context"
 	"crypto/md5"
 	"encoding/hex"
 	"github.com/gin-gonic/gin"
+	"github.com/gogf/gf/frame/g"
+	"github.com/gogf/gf/i18n/gi18n"
+	"github.com/gogf/gf/util/gconv"
 	"github.com/sirupsen/logrus"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"path/filepath"
 	"sync"
 )
+
+type any = interface{}
 
 var services = &Services{services: make(map[string]interface{})}
 
@@ -38,6 +45,31 @@ func (rsp *Response) End(c *gin.Context, httpStatus ...int) {
 
 	rsp.Message = Translate(c.DefaultQuery("lang", "zh-cn"), rsp.Message)
 	c.JSON(status, rsp)
+}
+
+func ParseReq(ctx *gin.Context) g.Map {
+	if ctx.Request.Method == http.MethodGet {
+		return gconv.Map(ctx.Request.Form)
+	}
+	var requestMap = make(g.Map)
+	json.NewDecoder(ioutil.NopCloser(ctx.Request.Body)).Decode(&requestMap)
+	return requestMap
+}
+
+func ValidatorRules(ctx *gin.Context, bizRule map[string]string, obj any) error {
+	ctxCh := gi18n.WithLanguage(context.TODO(), "zh-CN")
+	jsonData := ParseReq(ctx)
+	verr := g.Validator().Ctx(ctxCh).Rules(bizRule).CheckMap(jsonData)
+	if verr != nil {
+		return verr
+	}
+	_, ok := obj.(g.Map)
+	if ok {
+		obj = jsonData
+		return nil
+	}
+	err := gconv.Struct(jsonData, obj)
+	return err
 }
 
 // NewResponse 接口返回统一使用这个

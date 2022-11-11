@@ -8,3 +8,9 @@ type Group struct {
 	Jumpbtntext string
 	HintType    int
 }
+
+type OpGroup struct {
+	Group
+	IsShow int
+	Num    int
+}

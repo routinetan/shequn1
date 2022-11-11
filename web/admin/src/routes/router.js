@@ -13,7 +13,7 @@ export default [{
         notCache: true,
         icon: 'md-home'
       },
-      component: () => import('@/view/home/hello')
+      component: () => import('@/view/home/group')
     },
     {
       path: '/dashboard',
@@ -35,7 +35,59 @@ export default [{
         notCache: true,
         icon: 'md-home'
       },
-      component: () => import('@/view/home/hello')
+      component: () => import('@/view/home/group')
+    },
+    {
+      path: '/group/create',
+      name: 'group_create',
+      redirect: '/group/create_nav1',
+      meta: {
+        hideInMenu: true,
+        title: '群管理-详细',
+        notCache: true,
+        isEdit:true,
+        icon: 'md-home'
+      },
+      component: () => import('@/view/home/create'),
+      children: [
+        {
+          path: '/group/create_nav1',
+          name: 'group_create_nav1',
+          meta: {
+            hideInMenu: true,
+            title: '群管理',
+            notCache: true,
+            icon: 'md-home'
+          },
+          component: () => import('@/view/home/create_nav1')
+        },
+      ]
+    },
+    {
+      path: '/group/:id',
+      name: 'group_edit',
+      redirect: '/group/:id/edit_nav1',
+      meta: {
+        hideInMenu: true,
+        title: '群管理-详细',
+        notCache: true,
+        isEdit:true,
+        icon: 'md-home'
+      },
+      component: () => import('@/view/home/edit'),
+      children: [
+        {
+          path: '/group/:id/edit_nav1',
+          name: 'group_edit_nav1',
+          meta: {
+            hideInMenu: true,
+            title: '群管理',
+            notCache: true,
+            icon: 'md-home'
+          },
+          component: () => import('@/view/home/edit_nav1')
+        },
+      ]
     },
     {
       path: '/group/:id/qrcode',
@@ -51,7 +103,7 @@ export default [{
     },
     {
       path: '/group/:id/qrcode/add',
-      name: 'qrcode',
+      name: 'qrcode_add',
       meta: {
         hideInMenu: true,
         title: '二维码添加',

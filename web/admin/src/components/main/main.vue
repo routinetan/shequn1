@@ -25,9 +25,7 @@
           </Breadcrumb>
         </div>
         <div class="layout-content">
-          <div class="layout-content-main" >
               <router-view />
-          </div>
         </div>
         <div class="layout-copy">
           2011-2016 &copy; TalkingData
@@ -83,21 +81,20 @@ export default {
 </script>
 <style scoped>
 html,body{
-  height:100vh;
+  min-height:76vh;
 }
 .layout{
   border: 1px solid #d7dde4;
   background: #f5f7f9;
   position: relative;
   border-radius: 4px;
-  overflow: hidden;
   height: 100%;
 }
 .layout-breadcrumb{
   padding: 10px 15px 0;
 }
 .layout-content{
-  min-height: 200px;
+  min-height: 76vh;
   margin: 15px;
   overflow: hidden;
   background: #fff;
@@ -105,7 +102,7 @@ html,body{
 }
 .layout-content-main{
   padding: 10px;
-  height:80vh;
+  min-height:76vh;
 }
 .layout-copy{
   text-align: center;
