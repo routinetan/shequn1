@@ -15,12 +15,8 @@ import (
 	"net/http/httputil"
 	"os"
 	"shequn1/foundation/app"
-	"shequn1/foundation/database/mgo"
-	"shequn1/foundation/database/mongo"
 	"shequn1/foundation/database/orm"
-	"shequn1/foundation/elastic"
 	"shequn1/foundation/log"
-	"shequn1/foundation/redis"
 	"shequn1/foundation/validator"
 	"strings"
 	"time"
@@ -59,10 +55,10 @@ func certInfo() (string, string) {
 func start() {
 	log.Start()
 	orm.Start()
-	mongo.Start()
-	mgo.Start()
-	redis.Start()
-	elastic.Start()
+	//mongo.Start()
+	//mgo.Start()
+	//redis.Start()
+	//elastic.Start()
 
 	// 加载应用配置
 	_ = app.Config().Bind("application", "application", &Config)
@@ -72,7 +68,7 @@ func start() {
 }
 
 // Run 启动服务
-func Run(service func(router http.Handler)) {
+func Run(router func(engine engine.Engine)) {
 	lock := createPid()
 	defer lock.UnLock()
 

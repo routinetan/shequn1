@@ -13,7 +13,6 @@ import (
 	"shequn1/foundation/database/orm"
 	"shequn1/foundation/engine"
 	"shequn1/foundation/log"
-	"shequn1/foundation/redis"
 	"shequn1/foundation/validator"
 	"shequn1/foundation/view"
 	"time"
@@ -54,8 +53,9 @@ func start() {
 	orm.Start()
 	//mongo.Start()
 	//mgo.Start()
-	redis.Start()
+	//redis.Start()
 	//elastic.Start()
+	
 	view.Init()
 	view.View.AddPath("/" + Mode + "/")
 	// 加载应用配置
