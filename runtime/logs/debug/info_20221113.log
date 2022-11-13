@@ -1,0 +1,7 @@
+{"level":"info","log_type":"foundation.server.server","msg":"server started at:2022-11-13 17:53:33.9191454 +0800 CST m=+0.187811401","time":"2022-11-13T17:53:33+08:00"}
+{"level":"info","log_type":"foundation.server.server","msg":"server started at:2022-11-13 17:53:43.6709237 +0800 CST m=+0.086384301","time":"2022-11-13T17:53:43+08:00"}
+{"level":"info","msg":"called this method","time":"2022-11-13T17:53:52+08:00"}
+{"level":"info","msg":"called this method","time":"2022-11-13T17:53:54+08:00"}
+{"level":"info","log_type":"foundation.server.server","msg":"server started at:2022-11-13 17:54:26.6422267 +0800 CST m=+0.088666901","time":"2022-11-13T17:54:26+08:00"}
+{"level":"info","msg":"called this method","time":"2022-11-13T17:54:32+08:00"}
+{"level":"info","msg":"called this method","time":"2022-11-13T17:54:34+08:00"}
