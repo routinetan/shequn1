@@ -16,6 +16,7 @@ import (
 	"os"
 	"shequn1/foundation/app"
 	"shequn1/foundation/database/orm"
+	"shequn1/foundation/engine"
 	"shequn1/foundation/log"
 	"shequn1/foundation/validator"
 	"strings"
@@ -41,7 +42,6 @@ var (
 	// After 在各项服务启动之后会执行的操作
 	After       func(engine *http.Server)
 	swagHandler gin.HandlerFunc
-	engine      = gin.New()
 
 	// Config 服务配置
 	Config application
