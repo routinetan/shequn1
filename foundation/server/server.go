@@ -62,7 +62,7 @@ func start() {
 	//elastic.Start()
 	view.Init()
 
-	view.View.AddPath("/" + Mode + "/")
+	view.View.AddPath("/" + Mode)
 	// 加载应用配置
 	_ = app.Config().Bind("application", "application", &Config)
 

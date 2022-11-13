@@ -5,3 +5,5 @@
 {"level":"info","log_type":"foundation.server.server","msg":"server started at:2022-11-13 17:54:26.6422267 +0800 CST m=+0.088666901","time":"2022-11-13T17:54:26+08:00"}
 {"level":"info","msg":"called this method","time":"2022-11-13T17:54:32+08:00"}
 {"level":"info","msg":"called this method","time":"2022-11-13T17:54:34+08:00"}
+{"level":"info","log_type":"foundation.server.server","msg":"server started at:2022-11-13 18:04:08.049166 +0800 CST m=+0.085885601","time":"2022-11-13T18:04:08+08:00"}
+{"level":"info","msg":"called this method","time":"2022-11-13T18:04:11+08:00"}
