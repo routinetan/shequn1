@@ -62,7 +62,7 @@ func start() {
 	//redis.Start()
 	//elastic.Start()
 	view.Init()
-	view.View.AddPath("/" + Mode + "/")
+	view.View.AddPath("/web/" + Mode + "/")
 	// 加载应用配置
 	err := app.Config().Bind("application", fmt.Sprintf("application.%s", Mode), &Config)
 	if err != nil {
