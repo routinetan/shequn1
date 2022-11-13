@@ -55,7 +55,6 @@ func start() {
 	//mgo.Start()
 	//redis.Start()
 	//elastic.Start()
-	
 	view.Init()
 	view.View.AddPath("/" + Mode + "/")
 	// 加载应用配置
