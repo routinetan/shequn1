@@ -12,7 +12,7 @@ import (
 func Index(ctx *gin.Context) {
 	cateId := ctx.DefaultQuery("cate_id", "")
 	app.Logger().Println("called this method")
-	view.View.AddPath("/index")
+	view.View.AddPath("index")
 	navs := service.GetNavList()
 	data, _ := view.View.Parse(ctx, "index.tmpl", g.Map{"navs": navs, "CateId": cateId})
 	ctx.Status(200)

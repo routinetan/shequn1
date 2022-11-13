@@ -9,7 +9,7 @@ type Order struct {
 }
 
 func (order *Order) Index(ctx *gin.Context) {
-	view.View.AddPath("/order")
+	view.View.AddPath("order")
 	data, _ := view.View.Parse(ctx, "index.tmpl")
 	ctx.Status(200)
 	ctx.Writer.WriteString(data)

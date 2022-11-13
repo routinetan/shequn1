@@ -11,7 +11,7 @@ type Search struct {
 
 func (search Search) Index(ctx *gin.Context) {
 	content := ctx.PostForm("searchContent")
-	view.View.AddPath("/search")
+	view.View.AddPath("search")
 	ret := service.SearchGroupList(content)
 	data, _ := view.View.Parse(ctx, "search.tmpl", ret)
 	ctx.Status(200)

@@ -17,7 +17,7 @@ func (qrcode Qrcode) Index(ctx *gin.Context) {
 	groupIdstr := ctx.Param("group_id")
 	groupId := gconv.Int(groupIdstr)
 
-	view.View.AddPath("/qrcode")
+	view.View.AddPath("qrcode")
 	//html, _ := view.View.Parse(ctx, "index.tmpl")
 
 	qrcodeThumb := service.UserScanLogic(groupId)
