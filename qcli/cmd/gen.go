@@ -202,6 +202,6 @@ func init() {
 	genCmd.AddCommand(daoCmd)
 	genCmd.AddCommand(curdCmd)
 	genCmd.AddCommand(modelCmd)
-	genMigrateCmd.Flags().String("m", "admin", "指定module")
+	genMigrateCmd.Flags().String("m", "admin", "change a module")
 	genCmd.AddCommand(genMigrateCmd)
 }
