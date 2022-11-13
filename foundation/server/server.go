@@ -81,9 +81,9 @@ func Run(router func(engine engine.Engine)) {
 	//	engine.GET("/doc/*any", swagHandler)
 	//}
 
-	if After != nil {
-		After(router)
-	}
+	//if After != nil {
+	//	After(router)
+	//}
 
 	_ = gracehttp.ServeWithOptions([]*http.Server{createServer(engineInst.GetHandler())}, gracehttp.PreStartProcess(func() error {
 		app.Logger().WithField("log_type", "foundation.server.server").Println("unlock pid")
