@@ -19,7 +19,7 @@
 
 [view]
   autoEncode = true
-  paths      =  ["/www/shequn1/web/"]
+  paths      =  ["/web/"]
   delimiters = ["${","}"]
 
 [database]
@@ -27,7 +27,7 @@
   [database.master]
     addr = "127.0.0.1:3306"
     username = "root"
-    password = "W617beXRXC)o"
+    password = "root"
     dbname = "quanzi1"
     max_idle = 100
     max_open = 100
@@ -36,7 +36,7 @@
   [[database.slave]]
     addr = "127.0.0.1:3306"
     username = "root"
-    password = "W617beXRXC)o"
+    password = "root"
     dbname = "quanzi1"
     max_idle = 100
     max_open = 100

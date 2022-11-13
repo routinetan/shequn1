@@ -88,11 +88,13 @@ func Run(router func(engine engine.Engine)) {
 	//	After(router)
 	//}
 
-	_ = gracehttp.ServeWithOptions([]*http.Server{createServer(engineInst.GetHandler())}, gracehttp.PreStartProcess(func() error {
+	err = gracehttp.ServeWithOptions([]*http.Server{createServer(engineInst.GetHandler())}, gracehttp.PreStartProcess(func() error {
 		app.Logger().WithField("log_type", "foundation.server.server").Println("unlock pid")
 		lock.UnLock()
 		return nil
 	}))
+
+	app.Logger().Error(err)
 }
 
 func createServer(router http.Handler) *http.Server {
