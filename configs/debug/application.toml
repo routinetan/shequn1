@@ -19,7 +19,7 @@
 
 [view]
   autoEncode = true
-  paths      =  ["./www/shequn1/web/"]
+  paths      =  ["./web/"]
   delimiters = ["${","}"]
 
 [database]
