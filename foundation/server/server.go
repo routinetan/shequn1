@@ -86,9 +86,9 @@ func Run(router func(engine engine.Engine)) {
 	//	engine.GET("/doc/*any", swagHandler)
 	//}
 	//createServer(engineInst.GetHandler()).ListenAndServe()
-	_ = gracehttp.ServeWithOptions([]*http.Server{createServer(engine)}, gracehttp.PreStartProcess(func() error {
+	_ = gracehttp.ServeWithOptions([]*http.Server{createServer(engineInst.GetHandler())}, gracehttp.PreStartProcess(func() error {
 		app.Logger().WithField("log_type", "foundation.server.server").Println("unlock pid")
-		lock.UnLock()
+		//lock.
 		return nil
 	}))
 }
