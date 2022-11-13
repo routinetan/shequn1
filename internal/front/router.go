@@ -27,7 +27,7 @@ func GetRouter(engine *gin.Engine) {
 			return out
 		},
 	})
-	view.View.AddPath("/tmpl/")
+	view.View.AddPath("tmpl/")
 	// 加载模板
 	engine.LoadHTMLGlob("web/front/tmpl/*/*")
 	engine.StaticFS("/static", http.Dir("./web/static"))
