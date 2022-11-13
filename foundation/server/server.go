@@ -6,7 +6,6 @@ package server
 import (
 	"crypto/tls"
 	"fmt"
-	"github.com/facebookgo/grace/gracehttp"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/sirupsen/logrus"
@@ -88,13 +87,7 @@ func Run(router func(engine engine.Engine)) {
 	//	After(router)
 	//}
 
-	err = gracehttp.ServeWithOptions([]*http.Server{createServer(engineInst.GetHandler())}, gracehttp.PreStartProcess(func() error {
-		app.Logger().WithField("log_type", "foundation.server.server").Println("unlock pid")
-		lock.UnLock()
-		return nil
-	}))
-
-	app.Logger().Error(err)
+	createServer(engineInst.GetHandler()).ListenAndServe()
 }
 
 func createServer(router http.Handler) *http.Server {
