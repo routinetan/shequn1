@@ -1,12 +1,12 @@
 [application]
   [application.front]
     schema = "http"
-    domain = "192.168.31.172:8081"
+    domain = "8.218.125.159:8081"
     addr   = ":8081"
     port   = "8081"
   [application.admin]
     schema = "http"
-    domain = "192.168.31.172:8082"
+    domain = "8.218.125.159:8082"
     addr   = ":8082"
     port   = "8082"
   [application.services]
