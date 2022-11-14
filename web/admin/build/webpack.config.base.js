@@ -4,7 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const resolve = dir => path.join(__dirname, '..', dir);
 const production = process.env.NODE_ENV === 'production';
