@@ -1,6 +1,7 @@
 package admin
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	jsoniter "github.com/json-iterator/go"
 	"html/template"
@@ -10,6 +11,7 @@ import (
 	"shequn1/foundation/database/managers"
 	"shequn1/foundation/middlewares"
 	"shequn1/foundation/rbac"
+	"shequn1/foundation/server"
 	"shequn1/foundation/util"
 	"shequn1/internal/admin/controller"
 	"shequn1/internal/entities"
@@ -46,7 +48,7 @@ func GetRouter(engine *gin.Engine) {
 	if !util.Exists("./public/wx") {
 		os.MkdirAll("./public/wx", 0777)
 	}
-	var saveHandler = new(app.DefaultSaveHandler).SetPrefix("http://localhost:8082")
+	var saveHandler = new(app.DefaultSaveHandler).SetPrefix(fmt.Sprintf("%s://%s", server.Config.Schema, server.Config.Domain))
 	saveHandler.SetPublicDst("/public/wx/").SetDst("./public/wx/")
 	engine.POST("/upload", app.Upload("file", saveHandler, "png", "jpg"))
 	apiv1 := engine.Group("/apiv1")
