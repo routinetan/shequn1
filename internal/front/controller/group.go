@@ -9,6 +9,7 @@ import (
 	"github.com/json-iterator/go/extra"
 	"github.com/skip2/go-qrcode"
 	"math/rand"
+	"shequn1/foundation/server"
 	"shequn1/foundation/view"
 	"shequn1/internal/service"
 )
@@ -50,7 +51,7 @@ func (group Group) Info(ctx *gin.Context) {
 	params["info"] = groupInfo
 	groupId, ok := groupInfo["group_id"]
 	if ok {
-		imgByte, _ = qrcode.Encode(fmt.Sprintf("http://192.168.31.172:8081/qrcode/%d", groupId), qrcode.Medium, 256)
+		imgByte, _ = qrcode.Encode(fmt.Sprintf("%d://%s/qrcode/%d", server.Config.Schema, server.Config.Domain, groupId), qrcode.Medium, 256)
 	} else {
 		content, _ := groupInfo["default_wechat_qrcodeurl"].(string)
 		imgByte, _ = qrcode.Encode(content, qrcode.Medium, 256)

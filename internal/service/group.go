@@ -2,11 +2,13 @@ package service
 
 import (
 	"errors"
+	"fmt"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/util/gconv"
 	"github.com/jinzhu/gorm"
 	"shequn1/foundation/database/orm"
 	"shequn1/foundation/paginator"
+	"shequn1/foundation/server"
 	"shequn1/internal/entities"
 	"shequn1/internal/model"
 )
@@ -79,7 +81,7 @@ func GetGroupInfo(id int) g.Map {
 		//最后看个人微信是否开启9,/
 		if genGroupStatus == 0 {
 			url, _ := cfg["default_wechat_qrcodeurl"].(string)
-			groupMap["default_wechat_qrcodeurl"] = "http://192.168.31.172:8081" + url
+			groupMap["default_wechat_qrcodeurl"] = fmt.Sprintf("%s://%s%s", server.Config.Schema, server.Config.Domain, url)
 		}
 
 	} else {

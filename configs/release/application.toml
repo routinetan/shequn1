@@ -1,10 +1,18 @@
 [application]
+  [application.front]
+    schema = "http"
+    domain = "192.168.31.172:8081"
+    addr   = ":8081"
+    port   = "8081"
   [application.admin]
-    addr = ":22224"
+    schema = "http"
+    domain = "192.168.31.172:8082"
+    addr   = ":8082"
+    port   = "8082"
   [application.services]
     domain = ".golang-project.com"
-    addr = ":22222"
-    name = "application"
+    addr =   ":22222"
+    name =   "root"
     password_token = "golang-project"
     jwt-token = "MIICWwIBAAKBgQCraRwunSw1bMXeGL908hnY6mVbWzp2nlIq3o6UKYd+uYcquX0Q\nGQrLU41LLdUYiM6RwNO8X+Z4RZPUWwgmHU5GfYk48u0oBW39qq8RlaMILgVY2PoV\nZeiEHPeL6e0NjYLyGWhPgrDqba8jUrWSjBXvQHhmfYUoBWDk/6jWesnGYQIDAQAB\nAoGASj+JeZeTYsDvJLlLlXiZQaCmrt/hfygtJ2yoDf2/N2Fd71/RkHuIdXKHrZz4\nxVvdPr1r+hkAV/CrjDyyVvAyyxhEzGu2GTlSxRKuu59vP+UQVK2ssc5DOnouwcj3\n3owQo+ZWczcyqjyerC5dHeLN6yDdE/OBRq3rM7lAVgG4xAECQQDbER96fxgmHmwH\nx8FWmezwGhE57Ava2EC7PEHCZngZokFbbAnU/7Z9vm+cbyaHcLsiqoWa9H9hPSv/\n28B4besxAkEAyE8m66fpkcsFMlNvbbjs4xa69ctq8iWTKMytLGFl+6iQNvwBc8fF\nT+sjxu2vAPfBBeMLjWzR6hC78/gXCWdiMQJAGwgu4TfDrBh+7irZEa2mzi35SDN3\ndwbOXgxedPWeBlO+SuC3CeCQDU4tiZkxoO7pOKrgF7Hp8f7Rah4czv+JUQJAKFz6\nxMXDJSO52lhBveRjp6bu6ZSh6kV0D+aehrDhsgJXfRzu1fvNYLtLLEy81P8XoC4O\nJ+NjsTzKAvFdAwIYIQJANcXbQytDxQSQDf81ouovW0vXdk0USH/gWhB1w9bIReNF\nTB+r9XOMCG8a6cK9QVseJjoEXA/lG+cP2vWbmkZ+PQ=="
 
@@ -89,9 +97,9 @@
   password = ""
 
 [log]
-  es = true # 是否使用 elasticsearch
+  es = false # 是否使用 elasticsearch
   index = "golang-project-log" # log 在 es 存放位置，不使用es存储log可不填
-  dir = "../runtime/logs/release/"
+  dir = "/runtime/logs/release/"
 
 # cdn服务器的一些基本信息
 [cdn]

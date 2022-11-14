@@ -27,6 +27,7 @@ import (
 type (
 	application struct {
 		Name          string `toml:"name"`
+		Schema        string `toml:"schema"`
 		Domain        string `toml:"domain"`
 		Addr          string `toml:"addr"`
 		PasswordToken string `toml:"password_token"`

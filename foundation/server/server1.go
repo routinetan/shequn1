@@ -22,6 +22,7 @@ type (
 	application struct {
 		Name          string `toml:"name"`
 		Domain        string `toml:"domain"`
+		Schema        string `toml:"schema"`
 		Addr          string `toml:"addr"`
 		PasswordToken string `toml:"password_token"`
 		JwtToken      string `toml:"jwt-token"`
