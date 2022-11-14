@@ -3,12 +3,14 @@ package service
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/util/gconv"
 	"io/ioutil"
 	"os"
 	"shequn1/foundation/app"
 	"shequn1/foundation/database/orm"
+	"shequn1/foundation/server"
 	"shequn1/foundation/util"
 	"shequn1/internal/model"
 )
@@ -28,7 +30,7 @@ func GetSystemCfg() g.Map {
 	}
 	systemCfgMap := gconv.Map(setting)
 	if setting.DefaultWechatQrCodeUrl != "" {
-		systemCfgMap["thumb_url"] = "http://localhost:8082" + setting.DefaultWechatQrCodeUrl
+		systemCfgMap["thumb_url"] = fmt.Sprintf("%s://%s%s", server.Config.Schema, server.Config.Domain, setting.DefaultWechatQrCodeUrl)
 	}
 	return systemCfgMap
 }
