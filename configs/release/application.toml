@@ -31,7 +31,7 @@ delimiters = ["${","}"]
 [database.master]
 addr = "127.0.0.1:3306"
 username = "root"
-password = "root"
+password = "W617beXRXC)o"
 dbname = "quanzi1"
 max_idle = 100
 max_open = 100
@@ -40,7 +40,7 @@ max_open = 100
 [[database.slave]]
 addr = "127.0.0.1:3306"
 username = "root"
-password = "root"
+password = "W617beXRXC)o"
 dbname = "quanzi1"
 max_idle = 100
 max_open = 100
