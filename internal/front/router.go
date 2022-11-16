@@ -18,7 +18,6 @@ import (
 )
 
 func GetRouter(engine *gin.Engine) {
-	engine.LoadHTMLFiles()
 	// 注册自定义函数
 	engine.SetFuncMap(template.FuncMap{
 		"map": func(json string) gin.H {

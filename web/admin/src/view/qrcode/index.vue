@@ -2,7 +2,7 @@
     <Row>
       <Row class="action"  :gutter="70">
         <Col span="1" >
-          <Button type="primary" size="large" to="/group/2/qrcode/add" >新增活码</Button>
+          <Button type="primary" size="large" :to="torul" >新增活码</Button>
         </Col>
       </Row>
       <Row>
@@ -24,6 +24,7 @@ export default {
       spanRight: 19,
       title:"",
       group_id:"",
+      tourl:"",
       page:{
         total:0,
         page_size:0,
@@ -95,6 +96,7 @@ export default {
   },
   mounted() {
     this.group_id = this.$route.params.id
+    this.tourl = "/group/"+this.group_id+"/qrcode/add"
     this.Request({
       url:'/qrcodes',
       method:"GET",
