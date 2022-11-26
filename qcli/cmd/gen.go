@@ -26,6 +26,7 @@ func genModuleCmdFunc(cmd *cobra.Command, args []string) {
 func genMigrateCmdFunc(cmd *cobra.Command, args []string) {
 	if len(args) < 1 {
 		fmt.Println("migrate latest have one params")
+		return
 	}
 	table := args[0]
 	migrateName := args[0]
@@ -44,7 +45,6 @@ func genMigrateCmdFunc(cmd *cobra.Command, args []string) {
 	}
 	time := time2.Now().Format("200601021504")
 	migrateName = fmt.Sprintf("%s_%s", migrateName, time)
-	fmt.Println(migrateName)
 	tpl, err := template.ParseFiles("tpl/migrate/migrate.tpl")
 	if err != nil {
 		panic(err)
@@ -65,7 +65,6 @@ func genModelCmdFunc(cmd *cobra.Command, args []string) {
 			fmt.Printf("  args[%d]:%s\r\n", i, args[i])
 
 		}
-
 	}
 }
 
@@ -81,6 +80,38 @@ func genServiceCmdFunc(cmd *cobra.Command, args []string) {
 		}
 
 	}
+}
+
+func genControllerCmdFunc(cmd *cobra.Command, args []string) {
+	if len(args) < 1 {
+		fmt.Println("controller gen latest have one params")
+		return
+	}
+	ctrName := args[0]
+	Cval := ctrName
+	if strings.Contains(ctrName, "_") {
+		words := strings.Split(ctrName, "_")
+		for k, v := range words {
+			words[k] = strings.ToUpper(string(v[0])) + v[1:]
+		}
+		ctrName = strings.Join(words, "")
+	} else {
+		ctrName = strings.ToUpper(string(ctrName[0])) + ctrName[1:]
+	}
+	module, _ := cmd.Flags().GetString("m")
+	migrateFile := fmt.Sprintf("../internal/%s/controller/%s.go", module, Cval)
+	fp, err := os.OpenFile(migrateFile, os.O_RDWR|os.O_CREATE, 0777)
+	if err != nil {
+		panic(err)
+	}
+	tpl, err := template.ParseFiles("tpl/controller/controller.tpl")
+	if err != nil {
+		panic(err)
+	}
+	data := make(map[string]interface{})
+	data["CVal"] = Cval
+	data["CStruct"] = ctrName
+	tpl.Execute(fp, data)
 }
 
 func genDAOCmdFunc(cmd *cobra.Command, args []string) {
@@ -158,6 +189,17 @@ var modelCmd = &cobra.Command{
 	Run:   testCmdFunc,
 }
 
+var genCtrlCmd = &cobra.Command{
+	Use:   "ctrl",
+	Short: "gen controller",
+	Long: `A longer description that spans multiple lines and likely contains
+examples and usage of using your application. For example:
+Cobra is a CLI library for Go that empowers applications.
+This application is a tool to generate the needed files
+to quickly create a Cobra application.`,
+	Run: genControllerCmdFunc,
+}
+
 var curdCmd = &cobra.Command{
 	Use:   "curd",
 	Short: "gen curd",
@@ -204,4 +246,6 @@ func init() {
 	genCmd.AddCommand(modelCmd)
 	genMigrateCmd.Flags().String("m", "admin", "change a module")
 	genCmd.AddCommand(genMigrateCmd)
+	genCtrlCmd.Flags().String("m", "admin", "change a module")
+	genCmd.AddCommand(genCtrlCmd)
 }

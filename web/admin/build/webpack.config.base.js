@@ -19,10 +19,15 @@ const env_vars = env => {
 };
 
 module.exports = env => ({
-  entry: [resolve('src/main.js')],
+  entry: [resolve('src/entry/home/main.js')],
   output: {
     path: resolve('dist'),
     filename: 'js/[name].[hash].js'
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "async"
+    }
   },
   module: {
     rules: [
@@ -102,8 +107,8 @@ module.exports = env => ({
     }),
     new HtmlWebpackPlugin({
       inject: true,
-      template: 'src/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      template: 'src/entry/home/index.html'
     }),
     new MiniCssExtractPlugin({
       filename: production ? 'css/[name].[hash].css' : '[name].css',

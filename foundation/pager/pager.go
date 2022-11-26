@@ -5,7 +5,7 @@
 //  driver = NewGormDriver()
 //  driver = NewMgoDriver()
 //
-//  pager.New(ctx, driver).SetIndex(c.entity.TableName()).Find(c.entity).Result()
+//  pager.New(ctx, driver).SetIndex(controller.entity.TableName()).Find(controller.entity).Result()
 package pager
 
 import (

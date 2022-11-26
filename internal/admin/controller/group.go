@@ -20,24 +20,24 @@ type EditBizRule struct {
 }
 
 type CreateGroupBizReq struct {
-	Id       int    `c:"id,omitempty"`
-	Title    string `c:"title,omitempty"`
-	Label    string `c:"label,omitempty"`
-	ClassId  int    `c:"class_id,omitempty"`
-	Type     int    `c:"type,omitempty"`
-	ThumbUrl string `c:"thumb_url,omitempty"`
-	IsShow   string `c:"is_show,omitempty"`
-	Status   int    `c:"status,omitempty"`
+	Id       int    `controller:"id,omitempty"`
+	Title    string `controller:"title,omitempty"`
+	Label    string `controller:"label,omitempty"`
+	ClassId  int    `controller:"class_id,omitempty"`
+	Type     int    `controller:"type,omitempty"`
+	ThumbUrl string `controller:"thumb_url,omitempty"`
+	IsShow   string `controller:"is_show,omitempty"`
+	Status   int    `controller:"status,omitempty"`
 }
 
 type EditBizReq struct {
-	Id       int    `c:"id,omitempty"`
-	Title    string `c:"title,omitempty"`
-	Label    string `c:"label,omitempty"`
-	ClassId  int    `c:"class_id,omitempty"`
-	ThumbUrl string `c:"thumb_url,omitempty"`
-	IsShow   string `c:"is_show,omitempty"`
-	Status   int    `c:"status,omitempty"`
+	Id       int    `controller:"id,omitempty"`
+	Title    string `controller:"title,omitempty"`
+	Label    string `controller:"label,omitempty"`
+	ClassId  int    `controller:"class_id,omitempty"`
+	ThumbUrl string `controller:"thumb_url,omitempty"`
+	IsShow   string `controller:"is_show,omitempty"`
+	Status   int    `controller:"status,omitempty"`
 }
 
 //rules和req

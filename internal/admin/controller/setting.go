@@ -12,15 +12,15 @@ type Setting struct {
 }
 
 type SystemCfgModifyBizReq struct {
-	Id                     int    `c:"id"`
-	DefaultWechatStatus    int    `c:"default_wechat_status"`
-	DefaultWechatQrCodeUrl string `c:"default_wechat_qrcodeurl"`
-	VipStatus              int    `c:"vip_status"`
-	PayCloseStatus         int    `c:"pay_close_status"`
-	FeederDomainStatus     int    `c:"feeder_domain_status"`
-	GenGroupStatus         int    `c:"gen_group_status"`
-	GenGroupId             int    `c:"gen_group_id"`
-	CloseStatus            int    `c:"close_status"`
+	Id                     int    `controller:"id"`
+	DefaultWechatStatus    int    `controller:"default_wechat_status"`
+	DefaultWechatQrCodeUrl string `controller:"default_wechat_qrcodeurl"`
+	VipStatus              int    `controller:"vip_status"`
+	PayCloseStatus         int    `controller:"pay_close_status"`
+	FeederDomainStatus     int    `controller:"feeder_domain_status"`
+	GenGroupStatus         int    `controller:"gen_group_status"`
+	GenGroupId             int    `controller:"gen_group_id"`
+	CloseStatus            int    `controller:"close_status"`
 }
 
 func (setting Setting) GetSystemConfig(ctx *gin.Context) {

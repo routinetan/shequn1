@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>
+						好帮营销策划有限公司							- 好帮营销策划有限公司						</title>
+        <meta name="format-detection" content="telephone=no, address=no">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- apple devices fullscreen -->
+        <meta name="apple-touch-fullscreen" content="yes"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+         <script src="/static/js/jweixin-1.6.0.js"></script>
+        <script type="text/javascript" src="/static/js/util.js"></script>
+        <script src="/static/js/require.js"></script>
+        <script type="text/javascript" src="/static/js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="/static/js/mui.min.js"></script>
+        <script type="text/javascript" src="/static/js/common.js"></script>
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/css/common.min.css" rel="stylesheet">
+        <script type="text/javascript">
+	if(navigator.appName == 'Microsoft Internet Explorer'){
+		if(navigator.userAgent.indexOf("MSIE 5.0")>0 || navigator.userAgent.indexOf("MSIE 6.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0) {
+			alert('您使用的 IE 浏览器版本过低, 推荐使用 Chrome 浏览器或 IE8 及以上版本浏览器.');
+		}
+	}
+	window.sysinfo = {
+		'uniacid': '2',		'acid': '2','openid': 'oHSLp1UARV1naRFdrP2ctR8ROaT8',				'siteroot': 'https://www.haobangyingxiaocehua.cn/',
+		'siteurl': 'https://www.haobangyingxiaocehua.cn/app/index.php?i=2&c=entry&do=vipPay&m=yy_shequn2&wxref=mp.weixin.qq.com',
+		'attachurl': 'http://haobang81.oss-cn-beijing.aliyuncs.com/',
+		'attachurl_local': 'https://www.haobangyingxiaocehua.cn/attachment/',
+		'attachurl_remote': 'http://haobang81.oss-cn-beijing.aliyuncs.com/',
+		'MODULE_URL': 'https://www.haobangyingxiaocehua.cn/addons/yy_shequn2/',		'cookie' : {'pre': 'f0XR_'}
+	};
+	// jssdk config 对象
+	jssdkconfig = {};
+	// 是否启用调试
+	jssdkconfig.debug = false;
+	jssdkconfig.jsApiList = [
+		'checkJsApi',
+		'onMenuShareTimeline',
+		'onMenuShareAppMessage',
+		'updateAppMessageShareData',
+		'updateTimelineShareData',
+		'onMenuShareQQ',
+		'onMenuShareWeibo',
+		'hideMenuItems',
+		'showMenuItems',
+		'hideAllNonBaseMenuItem',
+		'showAllNonBaseMenuItem',
+		'translateVoice',
+		'startRecord',
+		'stopRecord',
+		'onRecordEnd',
+		'playVoice',
+		'pauseVoice',
+		'stopVoice',
+		'uploadVoice',
+		'downloadVoice',
+		'chooseImage',
+		'previewImage',
+		'uploadImage',
+		'downloadImage',
+		'getNetworkType',
+		'openLocation',
+		'getLocation',
+		'hideOptionMenu',
+		'showOptionMenu',
+		'closeWindow',
+		'scanQRCode',
+		'chooseWXPay',
+		'openProductSpecificView',
+		'addCard',
+		'chooseCard',
+		'openCard',
+		'onMenuShareQZone',
+		'onVoiceRecordEnd',
+		'onVoicePlayEnd'
+	];
+	</script>
+    </head>
+    <body>
+        <div class="container container-fill">
+            <div class="mui-content pay-method">
+                <h5 class="mui-desc-title mui-pl10">订单详情</h5>
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell">
+			商品名称
+                        <span class="mui-pull-right mui-text-muted">VIP会员</span>
+                    </li>
+                    <li class="mui-table-view-cell">
+			订单编号
+                        <span class="mui-pull-right mui-text-muted">vip202211171429508252</span>
+                    </li>
+                    <li class="mui-table-view-cell">
+			商家名称
+                        <span class="mui-pull-right mui-text-muted">好帮营销策划有限公司</span>
+                    </li>
+                    <li class="mui-table-view-cell">
+			商品价格
+                        <span class="mui-pull-right mui-text-success mui-big mui-rmb">98 元</span>
+                    </li>
+                </ul>
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell mui-table-view-chevron">
+			还需支付
+                        <span class="mui-pull-right mui-text-success mui-big mui-rmb js-need-pay" data-price="98.00">98.00 元</span>
+                    </li>
+                </ul>
+                <h5 class="mui-desc-title mui-pl10">选择支付方式</h5>
+                <ul class="mui-table-view mui-table-view-chevron pay-style">
+                    <li class="mui-table-view-cell mui-disabled js-wechat-pay">
+                        <a class="mui-navigate-right mui-media" href="javascript:;">
+                            <form action="https://www.haobangyingxiaocehua.cn/app/index.php?i=2&c=mc&a=cash&do=wechat&" method="post">
+                                <input type="hidden" name="params" value="eyJ0aWQiOiJ2aXAyMDIyMTExNzE0Mjk1MDgyNTIiLCJvcmRlcnNuIjoidmlwMjAyMjExMTcxNDI5NTA4MjUyIiwidGl0bGUiOiJWSVBcdTRmMWFcdTU0NTgiLCJmZWUiOiI5OCIsInVzZXIiOm51bGwsIm1vZHVsZSI6Inl5X3NoZXF1bjIifQ==" />
+                                <input type="hidden" name="code" value="" />
+                                <input type="hidden" name="coupon_id" value="" />
+                                <input type="hidden" name="mix_pay" value="" />
+                            </form>
+                            <img src="/static/image/wx-icon.png" alt="" class="mui-media-object mui-pull-left"/>
+                            <span class="mui-media-body mui-block">
+                                <span id="wetitle">微信支付</span>
+                                <span class="mui-block mui-text-muted mui-mt5">微信支付,安全快捷(只能在微信内使用)</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="mui-table-view-cell mui-disabled js-webwxapp-pay hide">
+                        <a class="mui-navigate-right mui-media" href="javascript:;">
+                            <img src="/static/image/wx-icon.png" alt="" class="mui-media-object mui-pull-left"/>
+                            <span class="mui-media-body mui-block">
+                                <span id="wetitle">微信支付</span>
+                                <span class="mui-block mui-text-muted mui-mt5">微信支付,安全快捷</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+	$(document).on('click', '.credit', function() {
+		$('.credit').hide();
+	});
+	check_password = '';
+	$('.credit-js-pay').click(function() {
+					//$(this).find('form').submit();
+							mui.prompt('','','请输入6位数的密码',['<div id="submit_password">确定</div>'],
+							function(){
+					$.post("./index.php?i=2&c=mc&a=cash&do=check_password&", {'password' : $(".mui-popup-input input").val()}, function(data) {
+						data = $.parseJSON(data);
+						if (data.message == 0) {
+							check_password = 'pass';
+							$('#credit_pay').submit();
+							return false;
+						} else {
+							alert('密码输入错误');
+							return false;
+						}
+					});
+				},'div')
+				document.querySelector('.mui-popup-input input').type='password';
+				return false;
+			});
+				$('[name="mix"]').click(function() {
+			if ($(this).prop('checked') === true) {
+				$('[name="mix_pay"]').val(true);
+				fee = (price * 100 - currency * 100)/100;
+				$('.credit').hide();
+			} else {
+				$('[name="mix_pay"]').val(false);
+				fee = (price * 100)/100;
+				$('.credit').show();
+			}
+			$('.js-need-pay').data('price', fee);
+			$('.js-need-pay').html(fee + '元');
+		});
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		var miniprogram_environment = false;
+		if(wx && wx.miniProgram && wx.miniProgram.getEnv) {
+			wx.miniProgram.getEnv(function(res) {
+				if (res.miniprogram) {
+					miniprogram_environment = true;
+				}
+			})
+		}
+		if(window.__wxjs_environment === 'miniprogram' || miniprogram_environment) {
+			$('.pay-style li').hide();
+			$('.js-webwxapp-pay').removeClass('hide');
+			$('.pay-style .js-webwxapp-pay').show();
+			$('.js-webwxapp-pay').click(function(){
+				wx.miniProgram.navigateTo({
+					url: "/wxapp_web/pages/view/pay?orderid=vip202211171429508252&module_name=yy_shequn2&title=VIP会员"
+				})
+			});
+		}
+		$('.js-wechat-pay').removeClass('mui-disabled');
+		$('.js-wechat-pay a').addClass('js-pay');
+		$('#wetitle').html('微信支付');
+	});
+    $('.js-wechat-pay').removeClass('mui-disabled');
+	$('.js-wechat-pay a').addClass('js-pay');
+	$(document).on('click', '.js-pay', function() {
+		$(this).prop('disabled', true);
+		$(this).find('form').submit();
+	})
+</script>

@@ -40,6 +40,7 @@ func GetRouter(engine *gin.Engine) {
 	engine.GET("/group/info", controller.Group{}.Info)
 
 	engine.POST("/search", controller.Search{}.Index)
+	engine.GET("/order", controller.Order{}.Index)
 	engine.GET("/qrcode/:group_id", controller.Qrcode{}.Index)
 	// 注册一个权限验证的中间件
 	//engine.Use(managerMiddleWares.CheckPermission)
