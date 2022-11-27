@@ -25,7 +25,6 @@ module.exports = env => ({
   },
   optimization: {
     splitChunks: {
-      chunks: "async",
       cacheGroups:{
         iview:{
           name:'iview',
