@@ -28,12 +28,12 @@ module.exports = env => ({
       cacheGroups:{
         iview:{
           name:'iview',
-          priority:20,
+          priority:1,
           test:/[\\/]node_modules[\\/]_?iview(.*)/
         },
         echart:{
           name:'echart',
-          priority:20,
+          priority:-10,
           test:/[\\/]node_modules[\\/]_?echart(.*)/
         },
       }
