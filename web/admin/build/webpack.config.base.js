@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const resolve = dir => path.join(__dirname, '..', dir);
 const production = process.env.NODE_ENV === 'production';
 
@@ -26,8 +26,21 @@ module.exports = env => ({
   },
   optimization: {
     splitChunks: {
-      chunks: "async"
-    }
+      chunks: "async",
+      cacheGroups:{
+        iview:{
+          name:'iview',
+          priority:20,
+          test:/[\\/]node_modules[\\/]_?iview(.*)/
+        },
+        echart:{
+          name:'echart',
+          priority:20,
+          test:/[\\/]node_modules[\\/]_?echart(.*)/
+        },
+      }
+    },
+
   },
   module: {
     rules: [
@@ -96,6 +109,7 @@ module.exports = env => ({
     modules: ['node_modules', 'styles']
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new VueLoaderPlugin(),
     new CleanWebpackPlugin(['dist'], {
       root: resolve('.'),
