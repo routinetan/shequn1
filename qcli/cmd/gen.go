@@ -82,22 +82,23 @@ func genServiceCmdFunc(cmd *cobra.Command, args []string) {
 	}
 }
 
-func genControllerCmdFunc(cmd *cobra.Command, args []string) {
-	if len(args) < 1 {
-		fmt.Println("controller gen latest have one params")
-		return
-	}
-	ctrName := args[0]
-	Cval := ctrName
-	if strings.Contains(ctrName, "_") {
-		words := strings.Split(ctrName, "_")
+func Conv2CamlStyle(name string) string {
+	if strings.Contains(name, "_") {
+		words := strings.Split(name, "_")
 		for k, v := range words {
 			words[k] = strings.ToUpper(string(v[0])) + v[1:]
 		}
-		ctrName = strings.Join(words, "")
+		name = strings.Join(words, "")
 	} else {
-		ctrName = strings.ToUpper(string(ctrName[0])) + ctrName[1:]
+		name = strings.ToUpper(string(name[0])) + name[1:]
 	}
+	return name
+}
+
+func genController(cmd *cobra.Command, args []string) {
+	ctrName := args[0]
+	Cval := ctrName
+	ctrName = Conv2CamlStyle(ctrName)
 	module, _ := cmd.Flags().GetString("m")
 	migrateFile := fmt.Sprintf("../internal/%s/controller/%s.go", module, Cval)
 	fp, err := os.OpenFile(migrateFile, os.O_RDWR|os.O_CREATE, 0777)
@@ -112,6 +113,54 @@ func genControllerCmdFunc(cmd *cobra.Command, args []string) {
 	data["CVal"] = Cval
 	data["CStruct"] = ctrName
 	tpl.Execute(fp, data)
+}
+
+func genService(cmd *cobra.Command, args []string) {
+	ctrName := args[0]
+	Cval := ctrName
+	ctrName = Conv2CamlStyle(ctrName)
+	module, _ := cmd.Flags().GetString("m")
+	migrateFile := fmt.Sprintf("../internal/%s/service/%s.go", module, Cval)
+	fp, err := os.OpenFile(migrateFile, os.O_RDWR|os.O_CREATE, 0777)
+	if err != nil {
+		panic(err)
+	}
+	tpl, err := template.ParseFiles("tpl/service/controller.tpl")
+	if err != nil {
+		panic(err)
+	}
+	data := make(map[string]interface{})
+	data["CVal"] = Cval
+	data["CStruct"] = ctrName
+	tpl.Execute(fp, data)
+}
+
+func genModel(cmd *cobra.Command, args []string) {
+	ctrName := args[0]
+	Cval := ctrName
+	ctrName = Conv2CamlStyle(ctrName)
+	module, _ := cmd.Flags().GetString("m")
+	migrateFile := fmt.Sprintf("../internal/%s/model/%s.go", module, Cval)
+	fp, err := os.OpenFile(migrateFile, os.O_RDWR|os.O_CREATE, 0777)
+	if err != nil {
+		panic(err)
+	}
+	tpl, err := template.ParseFiles("tpl/model/controller.tpl")
+	if err != nil {
+		panic(err)
+	}
+	data := make(map[string]interface{})
+	data["CVal"] = Cval
+	data["CStruct"] = ctrName
+	tpl.Execute(fp, data)
+}
+
+func genControllerCmdFunc(cmd *cobra.Command, args []string) {
+	if len(args) < 1 {
+		fmt.Println("controller gen latest have one params")
+		return
+	}
+	genController(cmd, args)
 }
 
 func genDAOCmdFunc(cmd *cobra.Command, args []string) {
@@ -136,8 +185,10 @@ func genCrudCmdFunc(cmd *cobra.Command, args []string) {
 			fmt.Printf("  args[%d]:%s\r\n", i, args[i])
 
 		}
-
 	}
+	genController(cmd, args)
+	genService(cmd, args)
+	genModel(cmd, args)
 }
 
 func genViewCmdFunc(cmd *cobra.Command, args []string) {

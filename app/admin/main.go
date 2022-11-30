@@ -9,6 +9,6 @@ import (
 func main() {
 	//go:generator
 	server.Mode = "admin"
-	// pages.New(&Table).List(ctx)
+	//pages.New(&Table).List(ctx)
 	server.Run(func(engine engine.Engine) { engine.Run(admin.GetRouter) })
 }

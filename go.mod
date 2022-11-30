@@ -38,16 +38,10 @@ require (
 	github.com/sony/sonyflake v1.0.0
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.9.0
-	//github.com/swaggo/files v0.0.0-20220728132757-551d4a08d97a
-	//github.com/swaggo/gin-swagger v1.5.3
-	//github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2
-	//github.com/swaggo/gin-swagger v1.3.1
 	github.com/swaggo/swag v1.8.1 // indirect
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
 	go.mongodb.org/mongo-driver v1.7.2
 	golang.org/x/text v0.3.7
-	//gopkg.in/confluentinc/confluent-kafka-go.v1 v1.8.2
-	//gopkg.in/confluentinc/confluent-kafka-go.v1 v1.7.0
 	gopkg.in/go-playground/validator.v9 v9.31.0
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 	gorm.io/datatypes v1.0.6
