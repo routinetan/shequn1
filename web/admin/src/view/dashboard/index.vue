@@ -17,14 +17,11 @@
 <script>
 import InforCard from '@/components/info-card'
 import CountTo from '@/components/count-to'
-import { ChartPie, ChartBar } from '@/components/charts'
 export default {
   name: 'home',
   components: {
     InforCard,
     CountTo,
-    ChartPie,
-    ChartBar,
   },
   data () {
     return {
