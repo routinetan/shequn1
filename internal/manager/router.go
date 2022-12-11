@@ -2,12 +2,12 @@ package manager
 
 import (
 	"github.com/gin-gonic/gin"
-	"shequn1/foundation/app"
-	"shequn1/foundation/captcha"
-	"shequn1/foundation/database/managers"
-	"shequn1/foundation/middlewares"
-	"shequn1/foundation/rbac"
 	"shequn1/internal/entities"
+	app2 "shequn1/internal/foundation/app"
+	"shequn1/internal/foundation/captcha"
+	"shequn1/internal/foundation/database/managers"
+	"shequn1/internal/foundation/middlewares"
+	"shequn1/internal/foundation/rbac"
 	"shequn1/internal/manager/controllers"
 )
 
@@ -24,12 +24,12 @@ func GetRouter(engine *gin.Engine) {
 
 	engine.GET("/captcha", func(context *gin.Context) {
 		cpat := captcha.New("medivh")
-		app.NewResponse(app.Success, gin.H{"content": cpat.ToBase64EncodeString(), "captcha_id": cpat.CaptchaID}).End(context)
+		app2.NewResponse(app2.Success, gin.H{"content": cpat.ToBase64EncodeString(), "captcha_id": cpat.CaptchaID}).End(context)
 	})
 
 	engine.POST("/captcha", func(context *gin.Context) {
 		id := context.DefaultQuery("captcha_id", "medivh")
-		app.Logger().Debug(captcha.Verify(id, context.DefaultQuery("captcha", "")))
+		app2.Logger().Debug(captcha.Verify(id, context.DefaultQuery("captcha", "")))
 	})
 
 	//engine.Use(middlewares.VerifyAuth)
@@ -41,8 +41,8 @@ func GetRouter(engine *gin.Engine) {
 	//engine.Use(managerMiddleWares.CheckPermission)
 
 	// 注册一个公共上传接口
-	var saveHandler = new(app.DefaultSaveHandler).SetPrefix("http://manager.golang-project.com/").SetDst("./test/")
-	engine.POST("/upload", app.Upload("file", saveHandler, "png", "jpg"))
+	var saveHandler = new(app2.DefaultSaveHandler).SetPrefix("http://manager.golang-project.com/").SetDst("./test/")
+	engine.POST("/upload", app2.Upload("file", saveHandler, "png", "jpg"))
 
 	// CSRFtoken支持, 因为 upload 不需要受 CSRFtoken 限制, 故将上传接口放在了上边
 	//engine.Use(middlewares.CsrfToken)

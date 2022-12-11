@@ -4,8 +4,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gogf/gf/util/gconv"
 	"github.com/json-iterator/go/extra"
-	"shequn1/foundation/view"
-	"shequn1/internal/service"
+	"net/http"
+	"shequn1/internal/biz"
+	"shequn1/internal/foundation/app"
+	"shequn1/internal/foundation/view"
 )
 
 //管理网站开关,管理网站的标题等
@@ -15,12 +17,11 @@ type Order struct {
 }
 
 func (order Order) List(ctx *gin.Context) {
+	resp := app.NewResponse(http.StatusOK, nil, "")
 	num := ctx.DefaultQuery("num", "0")
-	ret := service.GetOpGroupList(gconv.Int(num))
-	ret["code"] = 200
-	ret["msg"] = ""
-	extra.SetNamingStrategy(extra.LowerCaseWithUnderscores)
-	ctx.PureJSON(200, ret)
+	resp.Data = biz.GetOpGroupList(gconv.Int(num))
+	resp.End(ctx)
+	return
 }
 
 func (order Order) Info(ctx *gin.Context) {

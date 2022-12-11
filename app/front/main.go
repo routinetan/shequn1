@@ -1,8 +1,8 @@
 package main
 
 import (
-	"shequn1/foundation/engine"
-	"shequn1/foundation/server"
+	"shequn1/internal/foundation/engine"
+	"shequn1/internal/foundation/server"
 	"shequn1/internal/front"
 )
 

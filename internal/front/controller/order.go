@@ -2,7 +2,7 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"shequn1/foundation/view"
+	"shequn1/internal/foundation/view"
 )
 
 type Order struct {

@@ -6,15 +6,15 @@ import (
 	"html/template"
 	"net/http"
 	"os"
-	"shequn1/foundation/app"
-	"shequn1/foundation/database/managers"
-	"shequn1/foundation/middlewares"
-	"shequn1/foundation/rbac"
-	"shequn1/foundation/util"
-	"shequn1/foundation/view"
-	"shequn1/internal/entities"
+	"shequn1/internal/foundation/app"
+	"shequn1/internal/foundation/database/managers"
+	middlewares2 "shequn1/internal/foundation/middlewares"
+	"shequn1/internal/foundation/rbac"
+	"shequn1/internal/foundation/util"
+	"shequn1/internal/foundation/view"
 	"shequn1/internal/front/controller"
 	"shequn1/internal/manager/controllers"
+	"shequn1/internal/store/entities"
 )
 
 func GetRouter(engine *gin.Engine) {
@@ -26,14 +26,14 @@ func GetRouter(engine *gin.Engine) {
 			return out
 		},
 	})
-	view.View.AddPath("/web/front/tmpl/")
+	view.View.AddPath("/view/front/tmpl/")
 	// 加载模板
-	engine.LoadHTMLGlob("web/front/tmpl/*/*")
-	engine.StaticFS("/static", http.Dir("./web/static"))
+	engine.LoadHTMLGlob("view/front/tmpl/*/*")
+	engine.StaticFS("/static", http.Dir("./view/static"))
 	engine.StaticFS("/public", http.Dir("./public"))
 	// 注册公用的中间件
-	engine.Use(middlewares.CORS)
-	engine.Use(middlewares.RegisterFuc)
+	engine.Use(middlewares2.CORS)
+	engine.Use(middlewares2.RegisterFuc)
 	// 登录路由需要在jwt验证中间件之前
 	engine.GET("/", controller.Index)
 	engine.GET("/group_list", controller.Group{}.List)

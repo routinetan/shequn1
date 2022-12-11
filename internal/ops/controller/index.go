@@ -3,8 +3,8 @@ package controller
 import (
 	"context"
 	"github.com/gin-gonic/gin"
-	"shequn1/foundation/app"
-	"shequn1/foundation/view"
+	"shequn1/internal/foundation/app"
+	"shequn1/internal/foundation/view"
 )
 
 // List 自定义 List 方法

@@ -5,9 +5,9 @@ import (
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/util/gconv"
 	"github.com/json-iterator/go/extra"
-	"shequn1/foundation/app"
-	"shequn1/foundation/validator"
-	"shequn1/internal/service"
+	"shequn1/internal/biz"
+	app2 "shequn1/internal/foundation/app"
+	"shequn1/internal/foundation/validator"
 )
 
 //管理网站开关,管理网站的标题等
@@ -44,7 +44,7 @@ type EditBizReq struct {
 
 func (group Group) List(ctx *gin.Context) {
 	num := ctx.DefaultQuery("num", "0")
-	ret := service.GetOpGroupList(gconv.Int(num))
+	ret := biz.GetOpGroupList(gconv.Int(num))
 	ret["code"] = 200
 	ret["msg"] = ""
 	extra.SetNamingStrategy(extra.LowerCaseWithUnderscores)
@@ -56,7 +56,7 @@ func (group Group) Info(ctx *gin.Context) {
 	ret := g.Map{}
 	ret["code"] = 200
 	ret["msg"] = ""
-	ret["data"] = service.GetGroupInfo(gconv.Int(id))
+	ret["data"] = biz.GetGroupInfo(gconv.Int(id))
 	ctx.Status(200)
 	extra.SetNamingStrategy(extra.LowerCaseWithUnderscores)
 	ctx.PureJSON(200, ret)
@@ -75,7 +75,7 @@ func (group Group) CreateGroupBase(ctx *gin.Context) {
 	}
 	//参数绑定
 	bizReq := CreateGroupBizReq{}
-	verr := app.ValidatorRules(ctx, bizRule, &bizReq)
+	verr := app2.ValidatorRules(ctx, bizRule, &bizReq)
 	if verr != nil {
 		ret["code"] = 400
 		ret["msg"] = verr.Error()
@@ -83,7 +83,7 @@ func (group Group) CreateGroupBase(ctx *gin.Context) {
 		return
 	}
 	bizAttrs := gconv.Map(bizReq)
-	err, groupBizObj := service.CreateGroupBase(bizAttrs)
+	err, groupBizObj := biz.CreateGroupBase(bizAttrs)
 	if err != nil {
 		ret["code"] = 400
 		ret["msg"] = err.Error()
@@ -107,7 +107,7 @@ func (group Group) ModifyGroupBase(ctx *gin.Context) {
 	}
 	//参数绑定
 	bizReq := EditBizReq{}
-	verr := app.ValidatorRules(ctx, bizRule, &bizReq)
+	verr := app2.ValidatorRules(ctx, bizRule, &bizReq)
 	if verr != nil {
 		ret["code"] = 400
 		ret["msg"] = verr.Error()
@@ -115,7 +115,7 @@ func (group Group) ModifyGroupBase(ctx *gin.Context) {
 		return
 	}
 	bizAttrs := gconv.Map(bizReq)
-	err := service.ModifyGroupBase(id, bizAttrs)
+	err := biz.ModifyGroupBase(id, bizAttrs)
 	if err != nil {
 		ret["code"] = 400
 		ret["msg"] = err.Error()
@@ -132,12 +132,12 @@ func (group Group) ModifyGroupAdvance(ctx *gin.Context) {
 	var groupBaseForm EditBizReq
 
 	if err := validator.Bind(ctx, &groupBaseForm); !err.IsValid() {
-		app.NewResponse(app.Success, err.ErrorsInfo).End(ctx)
+		app2.NewResponse(app2.Success, err.ErrorsInfo).End(ctx)
 		return
 	}
 	groupEntity := g.Map{}
 	gconv.Structs(groupBaseForm, &groupEntity)
-	err := service.ModifyGroupBase(groupBaseForm.Id, groupEntity)
+	err := biz.ModifyGroupBase(groupBaseForm.Id, groupEntity)
 	if err != nil {
 		ret["code"] = 400
 		ret["msg"] = err.Error()

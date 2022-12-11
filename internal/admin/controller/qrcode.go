@@ -5,8 +5,8 @@ import (
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/util/gconv"
 	"github.com/json-iterator/go/extra"
+	"shequn1/internal/biz"
 	"shequn1/internal/entities"
-	"shequn1/internal/service"
 )
 
 type Qrcode struct {
@@ -22,7 +22,7 @@ func (qrcode Qrcode) List(ctx *gin.Context) {
 		ctx.PureJSON(400, ret)
 		return
 	}
-	ret = service.GetQrcodeList(page, groupId)
+	ret = biz.GetQrcodeList(page, groupId)
 	ret["code"] = 200
 	ret["msg"] = ""
 	extra.SetNamingStrategy(extra.LowerCaseWithUnderscores)
@@ -40,7 +40,7 @@ func (qrcode Qrcode) Create(ctx *gin.Context) {
 		ctx.PureJSON(200, ret)
 		return
 	}
-	ret = service.CreateQrcode(form)
+	ret = biz.CreateQrcode(form)
 	ctx.PureJSON(200, ret)
 	return
 }

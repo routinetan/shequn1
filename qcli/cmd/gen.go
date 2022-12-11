@@ -120,12 +120,12 @@ func genService(cmd *cobra.Command, args []string) {
 	Cval := ctrName
 	ctrName = Conv2CamlStyle(ctrName)
 	module, _ := cmd.Flags().GetString("m")
-	migrateFile := fmt.Sprintf("../internal/%s/service/%s.go", module, Cval)
+	migrateFile := fmt.Sprintf("../internal/%s/biz/%s.go", module, Cval)
 	fp, err := os.OpenFile(migrateFile, os.O_RDWR|os.O_CREATE, 0777)
 	if err != nil {
 		panic(err)
 	}
-	tpl, err := template.ParseFiles("tpl/service/controller.tpl")
+	tpl, err := template.ParseFiles("tpl/biz/controller.tpl")
 	if err != nil {
 		panic(err)
 	}
@@ -215,7 +215,7 @@ COMMAND
     app        生成一个新的模块
     curd       install or update qcli to system in default...
     controller automatically generate go files for ORM models...
-    service    extra features for go modules...
+    biz    extra features for go modules...
     dao        running go codes with hot-compiled-like feature...
     model      create and initialize an empty qcli project...
     view       show more information about a specified command

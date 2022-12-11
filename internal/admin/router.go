@@ -7,14 +7,14 @@ import (
 	"html/template"
 	"net/http"
 	"os"
-	"shequn1/foundation/app"
-	"shequn1/foundation/database/managers"
-	"shequn1/foundation/middlewares"
-	"shequn1/foundation/rbac"
-	"shequn1/foundation/server"
-	"shequn1/foundation/util"
 	"shequn1/internal/admin/controller"
 	"shequn1/internal/entities"
+	"shequn1/internal/foundation/app"
+	"shequn1/internal/foundation/database/managers"
+	"shequn1/internal/foundation/middlewares"
+	"shequn1/internal/foundation/rbac"
+	"shequn1/internal/foundation/server"
+	"shequn1/internal/foundation/util"
 	"shequn1/internal/manager/controllers"
 )
 
@@ -30,10 +30,10 @@ func GetRouter(engine *gin.Engine) {
 	})
 
 	// 加载模板
-	//engine.LoadHTMLGlob("web/admin/dist/*")
-	engine.StaticFS("/assets", http.Dir("./web/admin/dist/assets/"))
-	engine.StaticFS("/css", http.Dir("./web/admin/dist/css/"))
-	engine.StaticFS("/js", http.Dir("./web/admin/dist/js/"))
+	//engine.LoadHTMLGlob("view/admin/dist/*")
+	engine.StaticFS("/assets", http.Dir("./view/admin/dist/assets/"))
+	engine.StaticFS("/css", http.Dir("./view/admin/dist/css/"))
+	engine.StaticFS("/js", http.Dir("./view/admin/dist/js/"))
 	engine.StaticFS("/public", http.Dir("./public"))
 	// 注册公用的中间件
 	engine.Use(middlewares.CORS)

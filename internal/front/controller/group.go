@@ -9,9 +9,9 @@ import (
 	"github.com/json-iterator/go/extra"
 	"github.com/skip2/go-qrcode"
 	"math/rand"
-	"shequn1/foundation/server"
-	"shequn1/foundation/view"
-	"shequn1/internal/service"
+	"shequn1/internal/biz"
+	"shequn1/internal/foundation/server"
+	"shequn1/internal/foundation/view"
 )
 
 type Group struct {
@@ -19,7 +19,7 @@ type Group struct {
 
 func (group Group) List(ctx *gin.Context) {
 	num := ctx.DefaultQuery("num", "0")
-	ret := service.GetGroupList(gconv.Int(num))
+	ret := biz.GetGroupList(gconv.Int(num))
 	ret["code"] = 200
 	ret["msg"] = ""
 	extra.SetNamingStrategy(extra.LowerCaseWithUnderscores)
@@ -32,7 +32,7 @@ func (group Group) Info(ctx *gin.Context) {
 	params := g.Map{
 		"status": 0,
 	}
-	groupInfo := service.GetGroupInfo(gconv.Int(id))
+	groupInfo := biz.GetGroupInfo(gconv.Int(id))
 	table := make(map[int]string)
 	table[10] = "197"
 	table[20] = "199"

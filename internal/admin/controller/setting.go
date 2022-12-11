@@ -4,8 +4,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gogf/gf/frame/g"
 	"github.com/json-iterator/go/extra"
-	"shequn1/foundation/app"
-	"shequn1/internal/service"
+	"shequn1/internal/biz"
+	"shequn1/internal/foundation/app"
 )
 
 type Setting struct {
@@ -27,7 +27,7 @@ func (setting Setting) GetSystemConfig(ctx *gin.Context) {
 	ret := g.Map{}
 	ret["code"] = 200
 	ret["msg"] = ""
-	ret["data"] = service.GetSystemCfg()
+	ret["data"] = biz.GetSystemCfg()
 	extra.SetNamingStrategy(extra.LowerCaseWithUnderscores)
 	ctx.PureJSON(200, ret)
 }
@@ -58,7 +58,7 @@ func (setting Setting) SaveSystemConfig(ctx *gin.Context) {
 		ctx.PureJSON(200, ret)
 		return
 	}
-	err := service.SaveSystemCfg(bizReq)
+	err := biz.SaveSystemCfg(bizReq)
 	if err != nil {
 		ret["code"] = 400
 		ret["msg"] = err.Error()

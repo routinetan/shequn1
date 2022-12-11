@@ -5,12 +5,12 @@ import (
 	jsoniter "github.com/json-iterator/go"
 	"html/template"
 	"net/http"
-	"shequn1/foundation/app"
-	"shequn1/foundation/database/managers"
-	"shequn1/foundation/middlewares"
-	"shequn1/foundation/rbac"
 	"shequn1/internal/admin/controller"
 	"shequn1/internal/entities"
+	"shequn1/internal/foundation/app"
+	"shequn1/internal/foundation/database/managers"
+	"shequn1/internal/foundation/middlewares"
+	"shequn1/internal/foundation/rbac"
 	"shequn1/internal/manager/controllers"
 )
 
@@ -26,8 +26,8 @@ func GetRouter(engine *gin.Engine) {
 	})
 
 	// 加载模板
-	engine.LoadHTMLGlob("web/front/tmpl/*/*")
-	engine.StaticFS("/static", http.Dir("./web/static"))
+	engine.LoadHTMLGlob("view/front/tmpl/*/*")
+	engine.StaticFS("/static", http.Dir("./view/static"))
 	// 注册公用的中间件
 	engine.Use(middlewares.CORS)
 

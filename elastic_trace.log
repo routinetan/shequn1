@@ -1,7 +1,0 @@
-HEAD /golang-project-log-2022-09-26 HTTP/1.1
-Host: 127.0.0.1:9200
-User-Agent: elastic/7.0.29 (windows-amd64)
-Accept: application/json
-Content-Type: application/json
-
-

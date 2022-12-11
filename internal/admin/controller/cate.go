@@ -4,8 +4,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gogf/gf/util/gconv"
 	"github.com/json-iterator/go/extra"
-	"shequn1/foundation/view"
-	"shequn1/internal/service"
+	"shequn1/internal/biz"
+	"shequn1/internal/foundation/view"
 )
 
 //管理网站开关,管理网站的标题等
@@ -16,7 +16,7 @@ type Cate struct {
 
 func (cate Cate) List(ctx *gin.Context) {
 	num := ctx.DefaultQuery("num", "0")
-	ret := service.GetOpGroupList(gconv.Int(num))
+	ret := biz.GetOpGroupList(gconv.Int(num))
 	ret["code"] = 200
 	ret["msg"] = ""
 	extra.SetNamingStrategy(extra.LowerCaseWithUnderscores)
