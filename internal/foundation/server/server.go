@@ -110,8 +110,8 @@ func createServer(router http.Handler) *http.Server {
 }
 
 // 对启动进程记录进程id
-func createPid() *app.Flock {
-	pidLock, pidLockErr := app.FLock(pidFile)
+func createPid() *app2.Flock {
+	pidLock, pidLockErr := app2.FLock(pidFile)
 	if pidLockErr != nil {
 		app2.Logger().WithField("log_type", "foundation.server.server").Fatalln("createPid: lock error", pidLockErr)
 	}
