@@ -63,7 +63,7 @@ func (defaultSaveHandler *DefaultSaveHandler) Save(file *multipart.FileHeader, f
 	filePath := defaultSaveHandler.dst + fileName
 	err := defaultSaveHandler.context.SaveUploadedFile(file, filePath)
 	if err != nil {
-		Get("logger").(*logrus.Logger).WithField("log_type", "foundation.app.upload").Error(err)
+		Get("logger").(*logrus.Logger).WithField("log_type", "foundation.cmd.upload").Error(err)
 		return ""
 	}
 	filePath = defaultSaveHandler.publicDst + fileName

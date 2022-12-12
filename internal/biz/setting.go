@@ -22,8 +22,8 @@ var (
 
 func GetSystemCfg() g.Map {
 	setting := model.SystemSetting{}
-	systemCfg := model.SystemCfg{Label: "app"}
-	orm.Master().Table("system_cfgs").Where("label = ?", "app").First(&systemCfg)
+	systemCfg := model.SystemCfg{Label: "cmd"}
+	orm.Master().Table("system_cfgs").Where("label = ?", "cmd").First(&systemCfg)
 	err := json.Unmarshal([]byte(systemCfg.Cfg), &setting)
 	if err != nil {
 		app.Logger().Error(err.Error())
@@ -37,7 +37,7 @@ func GetSystemCfg() g.Map {
 
 func SaveSystemCfg(bizAttr g.Map) error {
 	systemCfg := model.SystemCfg{}
-	bizAttr["label"] = "app"
+	bizAttr["label"] = "cmd"
 	tmpJsonByte, _ := json.Marshal(bizAttr)
 	settingCfg := string(tmpJsonByte)
 	systemCfg.Label, _ = bizAttr["label"].(string)
@@ -65,7 +65,7 @@ func GetSystemCfgJson() g.Map {
 	cfgJson := string(cfgJsonbyte)
 	if cfgJson == "" {
 		systemCfg := model.SystemCfg{}
-		orm.Master().Table("system_cfgs").Where("label = ?", "app").First(&systemCfg)
+		orm.Master().Table("system_cfgs").Where("label = ?", "cmd").First(&systemCfg)
 		cfgJsonbyte = []byte(systemCfg.Cfg)
 		os.WriteFile(cfgPath+"/"+cfgFile, []byte(systemCfg.Cfg), 0777)
 	}

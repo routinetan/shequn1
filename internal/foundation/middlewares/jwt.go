@@ -19,7 +19,7 @@ type Claims struct {
 
 //// 认证表信息,该表需要为mongo
 //type Auth struct {
-//	Entity  app.Table // 非指针对象
+//	Entity  cmd.Table // 非指针对象
 //	ParseId func(string) interface{}
 //}
 

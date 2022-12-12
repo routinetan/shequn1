@@ -82,7 +82,7 @@ func Run(router func(engine engine.Engine)) {
 	//}
 	createServer(engineInst.GetHandler()).ListenAndServe()
 	//_ = gracehttp.ServeWithOptions([]*http.Server{createServer(engine)}, gracehttp.PreStartProcess(func() error {
-	//	app.Logger().WithField("log_type", "foundation.server.server").Println("unlock pid")
+	//	cmd.Logger().WithField("log_type", "foundation.server.server").Println("unlock pid")
 	//	lock.UnLock()
 	//	return nil
 	//}))
@@ -104,15 +104,15 @@ func createServer(router http.Handler) *http.Server {
 }
 
 // 对启动进程记录进程id
-//func createPid() *app.Flock {
-//pidLock, pidLockErr := app.FLock(pidFile)
+//func createPid() *cmd.Flock {
+//pidLock, pidLockErr := cmd.FLock(pidFile)
 //if pidLockErr != nil {
-//	app.Logger().WithField("log_type", "foundation.server.server").Fatalln("createPid: lock error", pidLockErr)
+//	cmd.Logger().WithField("log_type", "foundation.server.server").Fatalln("createPid: lock error", pidLockErr)
 //}
 
 //err := pidLock.WriteTo(fmt.Sprintf(`%d`, os.Getpid()))
 //if err != nil {
-//	app.Logger().WithField("log_type", "foundation.server.server").Fatalln("write error: ", err)
+//	cmd.Logger().WithField("log_type", "foundation.server.server").Fatalln("write error: ", err)
 //}
 //return nil
 //}

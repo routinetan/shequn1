@@ -1,5 +1,5 @@
 // Package email 发送邮件
-// 	email.Send(email.NewHTMLSender("这里是标题", email.ParseHHTML(app.FilePath() + "/public/email/test.html", struct {
+// 	email.Send(email.NewHTMLSender("这里是标题", email.ParseHHTML(cmd.FilePath() + "/public/email/test.html", struct {
 //		Name string
 //	}{Name:"medivh"}), "844627855@qq.com"))
 package email

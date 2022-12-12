@@ -53,13 +53,13 @@ function navContent() {    //分类导航
     nav += '				<p>好帮营销</p>';
     nav += '			</li>';
     nav += '		</a>';
-    nav += '		<a href="http://www.haobangyingxiaocehua.cn/app/index.php?i=2&controller=entry&act=index&do=user.sys_case&m=lywywl_ztb">';
+    nav += '		<a href="http://www.haobangyingxiaocehua.cn/cmd/index.php?i=2&controller=entry&act=index&do=user.sys_case&m=lywywl_ztb">';
     nav += '			<li>';
     nav += '				<img src="https://www.haobangyingxiaocehua.cn/attachment/images/2/2020/12/Bw4uU1OszFS6ZAsOXuS1C1nU6wsWEF.jpg"/>';
     nav += '				<p>营销工具</p>';
     nav += '			</li>';
     nav += '		</a>';
-    nav += '		<a href="https://www.haobangyingxiaocehua.cn/app/index.php?i=2&controller=entry&do=index&m=nan_fc&state=1">';
+    nav += '		<a href="https://www.haobangyingxiaocehua.cn/cmd/index.php?i=2&controller=entry&do=index&m=nan_fc&state=1">';
     nav += '			<li>';
     nav += '				<img src="https://www.haobangyingxiaocehua.cn/attachment/images/2/2020/12/wwzZgUk6w6YsGwyZuEu96oY6UUY76y.jpg"/>';
     nav += '				<p>娱乐游戏</p>';

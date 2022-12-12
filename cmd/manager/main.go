@@ -40,7 +40,7 @@ func main() {
 		//			roleResult := mongo.Collection(role).InsertOne(role)
 		//
 		//			var binding = &rbac.Binding{UserID: staffResult.InsertedID.(primitive.ObjectID).Hex(), RoleID: roleResult.InsertedID.(primitive.ObjectID).Hex()}
-		//			app.Logger().Debug(mongo.Collection(binding).InsertOne(binding))
+		//			cmd.Logger().Debug(mongo.Collection(binding).InsertOne(binding))
 		//		}
 		//	}
 		//}
