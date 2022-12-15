@@ -6,7 +6,7 @@ import (
 	"github.com/gogf/gf/util/gconv"
 	"github.com/json-iterator/go/extra"
 	"shequn1/internal/biz"
-	"shequn1/internal/entities"
+	"shequn1/internal/store/entities"
 )
 
 type Qrcode struct {
