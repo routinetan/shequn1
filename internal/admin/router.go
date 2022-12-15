@@ -8,14 +8,11 @@ import (
 	"net/http"
 	"os"
 	"shequn1/internal/admin/controller"
-	"shequn1/internal/entities"
 	"shequn1/internal/foundation/app"
-	"shequn1/internal/foundation/database/managers"
 	"shequn1/internal/foundation/middlewares"
 	"shequn1/internal/foundation/rbac"
 	"shequn1/internal/foundation/server"
 	"shequn1/internal/foundation/util"
-	"shequn1/internal/manager/controllers"
 )
 
 func GetRouter(engine *gin.Engine) {
@@ -62,13 +59,6 @@ func GetRouter(engine *gin.Engine) {
 	apiv1.POST("/systemCfg", controller.Setting{}.SaveSystemConfig)
 	// CSRFtoken支持, 因为 upload 不需要受 CSRFtoken 限制, 故将上传接口放在了上边
 	//engine.Use(middlewares.CsrfToken)
-
-	// 将对应数据接口注册生成 CURD 接口
-	managers.New().
-		Register(entities.Staff{}, managers.Mongo).
-		Register(entities.Mgo{}, managers.Mgo).
-		RegisterCustomManager(&controllers.CustomOrder{}, entities.Order{}).
-		Start(engine)
 
 	// 将权限验证数据表的CURD接口进行注册
 	rbac.Inject(engine)
