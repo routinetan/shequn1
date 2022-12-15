@@ -13,7 +13,7 @@ Vue.use(iView);
 
 window._vueInstance = new Vue({
   el: '#app',
-  template: '<cmd/>',
+  template: '<app/>',
   components: { app },
   store,
   router
